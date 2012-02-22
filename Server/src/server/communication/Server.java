@@ -4,6 +4,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.LinkedList;
 
+import server.backend.Backend;
 import server.filesystem.Log;
 
 public class Server extends Thread{
@@ -12,10 +13,12 @@ public class Server extends Thread{
 	private int port = 666;
 	LinkedList <ClientCommunicator>clients;
 	private static Server instance = null;
+	private Backend backend = null;
 	
 	private Server()
 	{
 		Log.getGlobal().event("Initializing server");
+		System.out.println("Initializing server");
 		try
 		{
 			servSocket = new ServerSocket(port);
@@ -24,9 +27,15 @@ public class Server extends Thread{
 		catch (Exception e)
 		{
 			Log.getGlobal().error("Error occured while initializing server");
+			System.err.println("Error occured while initializing server");
 			return;
 		}
 		clients = new LinkedList<ClientCommunicator>();
+	}
+	
+	public void setBackend(Backend backend)
+	{
+		this.backend = backend;
 	}
 	
 	public static Server getInstance()
@@ -44,6 +53,7 @@ public class Server extends Thread{
 	protected void listen()
 	{
 		Log.getGlobal().event("Server started.\n\tListening for connections at port " + port);
+		System.out.println("Server started.\n\tListening for connections at port " + port);
 		Socket clientSock;
 		ClientCommunicator client;
 		while (true)
@@ -82,5 +92,29 @@ public class Server extends Thread{
 		{
 			clients.remove(client);
 		}
+	}
+	
+	public void stopServer()
+	{
+		this.stop();
+		try
+		{
+			this.join(200);
+		}
+		catch(Exception e )
+		{
+			
+		}
+		Log.getGlobal().event("Server stopped");
+	}
+	
+	public int countClients()
+	{
+		int c;
+		synchronized(clients)
+		{
+			c = clients.size();
+		}
+		return c;
 	}
 }

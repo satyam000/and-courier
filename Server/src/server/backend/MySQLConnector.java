@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import server.filesystem.Log;
 
-public class MySQLConnector {
+public class MySQLConnector implements Backend{
 
 	private Connection connection = null;
 	
