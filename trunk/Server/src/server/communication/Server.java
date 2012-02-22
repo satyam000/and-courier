@@ -4,7 +4,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.LinkedList;
 
-public class Server {
+import server.filesystem.Log;
+
+public class Server extends Thread{
 
 	private ServerSocket servSocket;
 	private int port = 666;
@@ -13,15 +15,15 @@ public class Server {
 	
 	private Server()
 	{
-		System.out.println("Initializing server");
+		Log.getGlobal().event("Initializing server");
 		try
 		{
 			servSocket = new ServerSocket(port);
-			System.out.println("Server started");
+			Log.getGlobal().event("Server started");
 		}
 		catch (Exception e)
 		{
-			System.err.println("Error occured while initializing server");
+			Log.getGlobal().error("Error occured while initializing server");
 			return;
 		}
 		clients = new LinkedList<ClientCommunicator>();
@@ -39,9 +41,9 @@ public class Server {
 		this.port = port;
 	}
 	
-	public void start()
+	protected void listen()
 	{
-		System.out.println("Server started.\n\tListening for connections at port " + port);
+		Log.getGlobal().event("Server started.\n\tListening for connections at port " + port);
 		Socket clientSock;
 		ClientCommunicator client;
 		while (true)
@@ -55,9 +57,15 @@ public class Server {
 			}
 			catch(Exception e)
 			{
-				System.err.println("Failed to estabilish connection with new client");
+				Log.getGlobal().error("Failed to estabilish connection with new client");
 			}
 		}
+	}
+	
+	@Override
+	public void run()
+	{
+		listen();
 	}
 	
 	public void removeClient(ClientCommunicator client)
