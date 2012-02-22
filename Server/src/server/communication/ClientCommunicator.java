@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import server.filesystem.Log;
+
 public class ClientCommunicator extends Thread {
 	
 	private Socket socket;
@@ -23,7 +25,7 @@ public class ClientCommunicator extends Thread {
 		}
 		catch(Exception e)
 		{
-			System.err.println("Failed to estabilish connection with client");
+			Log.getGlobal().error("Failed to estabilish connection with client");
 		}
 	}
 	
@@ -43,8 +45,8 @@ public class ClientCommunicator extends Thread {
 		}
 		catch(Exception e)
 		{
-			System.out.println("Failed to read from client");
 		}
+		Log.getGlobal().event("Client disconnected");
 		parent.removeClient(this);
 	}
 }
