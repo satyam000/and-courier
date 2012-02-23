@@ -36,7 +36,7 @@ public class Main {
 			else if(com.equals("addu"))
 			{
 				System.out.println("addu - adds a new courier to database. Correct syntax is as follows:");
-				System.out.println("\taddu name, surname, login, password");
+				System.out.println("\taddu login, password");
 			}
 			else if(com.equals("rmu"))
 			{
@@ -51,7 +51,7 @@ public class Main {
 	private static void addUser(String sargs)
 	{
 		String [] args = sargs.split(" ");
-		if (args.length > 3)
+		if (args.length == 2)
 		{
 			if (dbcon.addUser(args[0], args[1]))
 				System.out.println("User successfully added");
@@ -74,6 +74,7 @@ public class Main {
 			else
 			{
 				server.stopServer();
+				System.exit(0);
 				return false;
 			}
 		}
@@ -117,7 +118,7 @@ public class Main {
 		}
 		else if (com.startsWith("addu "))
 		{
-			if (com.length() < 5)
+			if (com.length() < 7)
 				System.out.println("Incorrect addu syntax");
 			else
 				addUser(com.substring(5));

@@ -17,8 +17,8 @@ public class Server extends Thread{
 	
 	private Server()
 	{
-		Log.getGlobal().event("Initializing server");
-		System.out.println("Initializing server");
+		Log.getGlobal().event("Initializing server...");
+		System.out.println("Initializing server...");
 		try
 		{
 			servSocket = new ServerSocket(port);
@@ -31,6 +31,8 @@ public class Server extends Thread{
 			return;
 		}
 		clients = new LinkedList<ClientCommunicator>();
+		Log.getGlobal().event("Server initialized");
+		System.out.println("Server initialized");
 	}
 	
 	public void setBackend(Backend backend)
@@ -61,9 +63,10 @@ public class Server extends Thread{
 			try
 			{
 				clientSock = servSocket.accept();
-				client = new ClientCommunicator(clientSock, this);
+				client = new ClientCommunicator(clientSock, this, backend);
 				addClient(client);
 				client.start();
+				Log.getGlobal().event("New client connected");
 			}
 			catch(Exception e)
 			{
@@ -116,5 +119,10 @@ public class Server extends Thread{
 			c = clients.size();
 		}
 		return c;
+	}
+	
+	public Backend getBackend()
+	{
+		return backend;
 	}
 }
