@@ -3,7 +3,7 @@ package server.backend;
 public interface Backend {
 	
 	//returns true if operation succeeds
-	public boolean addUser(String userName, String password, String name, String surname);
+	public boolean addUser(String userName, String password);
 	
 	//returns true if operation succeeds
 	public boolean deleteUser(String userName);
