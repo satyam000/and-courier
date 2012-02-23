@@ -53,7 +53,7 @@ public class Main {
 		String [] args = sargs.split(" ");
 		if (args.length > 3)
 		{
-			if (dbcon.addUser(args[2], args[3], args[0], args[1]))
+			if (dbcon.addUser(args[0], args[1]))
 				System.out.println("User successfully added");
 			else
 				System.out.println("An error occured while adding a user");

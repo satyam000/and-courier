@@ -72,12 +72,12 @@ public class MySQLConnector implements Backend{
 		return false;
 	}
 	
-	public boolean addUser(String userName, String password, String name, String surname)
+	public boolean addUser(String userName, String password)
 	{
 		try
 		{
 			Statement stat = connection.createStatement();
-			stat.executeUpdate("INSERT INTO couriers VALUES (default, '"+name+"','"+surname+"','"+userName+"','"+password+"')");
+			stat.executeUpdate("INSERT INTO couriers VALUES (default, '"+userName+"','"+password+"')");
 			return true;
 		}
 		catch(Exception e)
@@ -116,60 +116,49 @@ public class MySQLConnector implements Backend{
 		    Statement st = connection.createStatement();
 		    st.execute("CREATE SCHEMA IF NOT EXISTS `" + databaseName + "` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;");
 		    st.execute("CREATE  TABLE IF NOT EXISTS `" + databaseName + "`.`Couriers` ("
-					+ "`courier_id` INT NOT NULL AUTO_INCREMENT ,"
-					+ "`name` VARCHAR(45) NOT NULL ,"
-					+ "`surname` VARCHAR(45) NOT NULL ,"
-					+ "`login` VARCHAR(45) NOT NULL ,"
-					+ "`password` VARCHAR(45) NOT NULL ,"
-					+ "PRIMARY KEY (`courier_id`) ,"
-					+ "UNIQUE INDEX `login_UNIQUE` (`login` ASC) )"
-					+ "ENGINE = InnoDB;" );
+		    		+ "`courier_id` INT NOT NULL AUTO_INCREMENT ,"
+		    		+ "`login` VARCHAR(45) NOT NULL ,"
+		    		+ "`password` VARCHAR(45) NOT NULL ,"
+		    		+ "PRIMARY KEY (`courier_id`) ,"
+		    		+ "UNIQUE INDEX `login_UNIQUE` (`login` ASC) );");
 		    st.execute("CREATE  TABLE IF NOT EXISTS `" + databaseName + "`.`Customers` ("
-		    			+ "`customer_id` INT NOT NULL AUTO_INCREMENT ,"
-		    			+ "`city` VARCHAR(45) NOT NULL ,"
-		    			+ "`street` VARCHAR(45) NOT NULL ,"
-		    			+ "`postal_code` VARCHAR(5) NOT NULL ,"
-		    			+ "`building_num` INT NOT NULL ,"
-		    			+ "`apartment_num` VARCHAR(45) NULL ,"
-		    			+ "PRIMARY KEY (`customer_id`) ,"
-		    			+ "CONSTRAINT `fk_Customers_Packages1`"
-		    			+ "FOREIGN KEY (`customer_id` )"
-		    			+ "REFERENCES `"+databaseName+"`.`Parcels` (`recipient_customer_id` )"
-		    			+ "ON DELETE NO ACTION"
-		    			+ ")");
+		    		+ "`customer_id` INT NOT NULL AUTO_INCREMENT ,"
+		    		+ "`name` VARCHAR(45) NOT NULL ,"
+		    		+ "`surname` VARCHAR(45) NOT NULL ,"
+		    		+ "`city` VARCHAR(45) NOT NULL ,"
+		    		+ "`street` VARCHAR(45) NOT NULL ,"
+		    		+ "`postal_code` VARCHAR(5) NOT NULL ,"
+		    		+ "`building_num` INT NOT NULL ,"
+		    		+ "`apartment_num` VARCHAR(45) NULL ,"
+		    		+ "PRIMARY KEY (`customer_id`));");
+		    st.execute("CREATE  TABLE IF NOT EXISTS `" + databaseName + "`.`ParcelType` ("
+		    		+ "`parceltype_id` INT NOT NULL AUTO_INCREMENT ,"
+		    		+ "`type` VARCHAR(45) NOT NULL ,"
+		    		+ "PRIMARY KEY (`parceltype_id`) );");
 		    st.execute("CREATE  TABLE IF NOT EXISTS `" + databaseName + "`.`Parcels` ("
-		    			+ "`package_id` INT NOT NULL AUTO_INCREMENT ,"
-		    			+ "`weight` FLOAT(5,2) NOT NULL ,"
-		    			+ "`sent_on` DATE NOT NULL ,"
-		    			+ "`delivered` TINYINT(1) NOT NULL DEFAULT 0 ,"
-		    			+ "`recipient_customer_id` INT NOT NULL ,"
-		    			+ "`sender_customer_id` INT NOT NULL ,"
-		    			+ "`assigned_to` INT NULL ,"
-		    			+ "PRIMARY KEY (`package_id`) ,"
-		    			+ "INDEX `fk_Packages_Couriers1` (`assigned_to` ASC) ,"
-		    			+ "INDEX `fk_Packages_Customers1` (`sender_customer_id` ASC) ,"
-		    			+ "CONSTRAINT `fk_Packages_Couriers1`"
-		    			+ "FOREIGN KEY (`assigned_to` )"
-		    			+ "REFERENCES `"+databaseName+"`.`Couriers` (`courier_id` )"
-		    			+ "ON DELETE NO ACTION"
-		    			+ "ON UPDATE NO ACTION,"
-		    			+ "CONSTRAINT `fk_Packages_Customers1`"
-		    			+ "FOREIGN KEY (`sender_customer_id` )"
-		    			+ "REFERENCES `"+databaseName+"`.`Customers` (`customer_id` )"
-		    			+ "ON DELETE NO ACTION"
-		    			+ "ON UPDATE NO ACTION)"
-		    			+ "ENGINE = InnoDB;");
-		    st.execute("CREATE  TABLE IF NOT EXISTS `"+ databaseName + "`.`Logins` ("
-		    			+ "`logins_id` INT NOT NULL AUTO_INCREMENT ,"
-		    			+ "`courier_id` INT NOT NULL ,"
-		    			+ "`logged_on` DATETIME NOT NULL ,"
-		    			+ "PRIMARY KEY (`logins_id`) ,"
-		    			+ "INDEX `fk_Logins_Couriers` (`courier_id` ASC) ,"
-		    			+ "CONSTRAINT `fk_Logins_Couriers`"
-		    			+ "FOREIGN KEY (`courier_id` )"
-		    			+ "REFERENCES `"+databaseName+"`.`Couriers` (`courier_id` )"
-		    			+ "ON DELETE NO ACTION"
-		    			+ ")");
+		    		+ "`package_id` INT NOT NULL AUTO_INCREMENT ,"
+		    		+ "`weight` FLOAT(5,2) NOT NULL ,"
+		    		+ "`sent_on` DATE NOT NULL ,"
+		    		+ "`delivered` TINYINT(1) NOT NULL DEFAULT 0 ,"
+		    		+ "`recipient_customer_id` INT NOT NULL ,"
+		    		+ "`sender_customer_id` INT NOT NULL ,"
+		    		+ "`assigned_to` INT NULL ,"
+		    		+ "`price` FLOAT(6,2) NOT NULL DEFAULT 0 ,"
+		    		+ "`parceltype_id` INT NOT NULL ,"
+		    		+ "PRIMARY KEY (`package_id`),"
+		    		+ "INDEX `fk_Packages_Couriers1` (`assigned_to` ASC) ,CONSTRAINT `fk_Packages_Couriers1`"
+		    		+ "FOREIGN KEY (`assigned_to` )"
+		    		+ "REFERENCES `" + databaseName + "`.`Couriers` (`courier_id` ));");
+		    st.execute("CREATE  TABLE IF NOT EXISTS `" + databaseName + "`.`Logins` ("
+		    		+ "`logins_id` INT NOT NULL AUTO_INCREMENT ,"
+		    		+ "`courier_id` INT NOT NULL ,"
+		    		+ "`logged_on` DATETIME NOT NULL ,"
+		    		+ "PRIMARY KEY (`logins_id`));");
+		    st.execute("use " + databaseName);
+		    st.execute("ALTER TABLE logins ADD CONSTRAINT FOREIGN KEY (courier_id) REFERENCES couriers(courier_id);");
+		    st.execute("ALTER TABLE parcels ADD CONSTRAINT FOREIGN KEY (sender_customer_id) REFERENCES customers(customer_id);");
+		    st.execute("ALTER TABLE parcels ADD CONSTRAINT FOREIGN KEY (recipient_customer_id) REFERENCES customers(customer_id);");
+		    st.execute("ALTER TABLE parcels ADD CONSTRAINT FOREIGN KEY (parceltype_id) REFERENCES parceltype(parceltype_id);");
 		    System.out.println("Database deployed");
 		    Log.getGlobal().event("Database deployed");
 		} catch (ClassNotFoundException e) {
