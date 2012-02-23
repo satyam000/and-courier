@@ -5,6 +5,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import server.backend.Backend;
+import server.communication.message.MessageProcessor;
+import server.communication.message.MessageProcessorFactory;
 import server.filesystem.Log;
 
 public class ClientCommunicator extends Thread {
@@ -13,8 +16,10 @@ public class ClientCommunicator extends Thread {
 	private BufferedReader in;
 	private PrintWriter out;
 	private Server parent;
+	private volatile String login = null;
+	private volatile String password = null;
 	
-	public ClientCommunicator(Socket socket, Server parent)
+	public ClientCommunicator(Socket socket, Server parent, Backend backend)
 	{
 		this.socket = socket;
 		this.parent = parent;
@@ -31,7 +36,31 @@ public class ClientCommunicator extends Thread {
 	
 	protected void process(String input)
 	{
-		
+		MessageProcessor mp = MessageProcessorFactory.getMessageProcessor(input, this);
+		if (mp == null)
+			Log.getGlobal().error("Unrecognized input from client: " + input);
+		else
+			mp.process(input);
+	}
+	
+	public Server getParent()
+	{
+		return parent;
+	}
+	
+	public void setLogin(String login)
+	{
+		this.login = login;
+	}
+	
+	public void setPassword(String password)
+	{
+		this.password = password;
+	}
+	
+	public PrintWriter getOutputStream()
+	{
+		return out;
 	}
 	
 	@Override
@@ -41,12 +70,19 @@ public class ClientCommunicator extends Thread {
 		try
 		{
 			while(( input = in.readLine() ) != null)
+			{
 				process(input);
+				Log.getGlobal().event("Received message: " + input);
+			}
+				
 		}
 		catch(Exception e)
 		{
 		}
-		Log.getGlobal().event("Client disconnected");
+		if (login != null)
+			Log.getGlobal().event("Client " + login + " disconnected");
+		else
+			Log.getGlobal().event("Unknown client disconnected");
 		parent.removeClient(this);
 	}
 }

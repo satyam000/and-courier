@@ -24,8 +24,10 @@ public class MySQLConnector implements Backend{
 		    Log.getGlobal().event("Connection with database estabilished");
 		} catch (ClassNotFoundException e) {
 		    Log.getGlobal().error("Failed to load MySQL driver for Java");
+		    System.err.println("Failed to load MySQL driver for Java");
 		} catch (SQLException e) {
 		    Log.getGlobal().error("Failed to estabilish connection with database");
+		    System.err.println("Failed to estabilish connection with database");
 		}
 	}
 	
