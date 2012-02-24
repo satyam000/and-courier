@@ -8,6 +8,8 @@ public abstract class MessageProcessorFactory {
 	{
 		if (input.startsWith("login:"))
 			return new LoginQueryProcessor(parent);
+		if (input.startsWith("unpar:"))
+			return new UnassignedParcelsProcessor(parent);
 		return null;
 	}
 }
