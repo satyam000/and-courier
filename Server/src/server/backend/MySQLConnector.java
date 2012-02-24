@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+
 import server.filesystem.Log;
 
 public class MySQLConnector implements Backend{
@@ -54,7 +56,7 @@ public class MySQLConnector implements Backend{
 		return -1;
 	}
 	
-	public boolean login(String userName, String password)
+	public int login(String userName, String password)
 	{
 		int id;
 		if ((id = userExists(userName, password)) != -1)
@@ -67,11 +69,12 @@ public class MySQLConnector implements Backend{
 			catch(Exception e)
 			{
 				Log.getGlobal().error("Error occured while saving last login");
+				return -1;
 			}
 			Log.getGlobal().event("User " + userName + " logged in");
-			return true;
+			return id;
 		}
-		return false;
+		return -1;
 	}
 	
 	public boolean addUser(String userName, String password)
@@ -104,6 +107,56 @@ public class MySQLConnector implements Backend{
 		return false;
 	}
 	
+	public LinkedList<String[]> getUnassignedParcels()
+	{
+		Statement statement = null;
+		ResultSet rs = null;
+		LinkedList<String[]>ret = new LinkedList<String[]>();
+		try
+		{
+			statement = connection.createStatement();
+			rs = statement.executeQuery("SELECT * FROM parcels WHERE assigned_to IS NULL");
+			while (rs.next())
+			{
+				String [] str = new String[10];
+				str[0] = rs.getString(1);
+				str[1] = rs.getString(2);
+				str[2] = rs.getString(3);
+				str[3] = rs.getString(4);
+				str[4] = rs.getString(5);
+				str[5] = rs.getString(6);
+				str[6] = rs.getString(7);
+				str[7] = rs.getString(8);
+				str[8] = rs.getString(9);
+				str[9] = rs.getString(10);
+				ret.add(str);
+			}
+		}
+		catch(Exception e)
+		{
+			Log.getGlobal().error("Failed to retrieve unassigned parcels information");
+			return null;
+		}
+		return ret;
+	}
+	
+	public ResultSet getAssignedToMeParcels(int id)
+	{
+		Statement statement = null;
+		ResultSet rs = null;
+		try
+		{
+			statement = connection.createStatement();
+			rs = statement.executeQuery("SELECT * FROM parcels WHERE assigned_to = " + id);
+		}
+		catch(Exception e)
+		{
+			Log.getGlobal().error("Failed to retrieve assigned to me parcels information");
+			return null;
+		}
+		return rs;
+	}
+	
 	public static void deployDatabase(String serverAddress, String databaseName, String userName, String password)
 	{
 		try {
@@ -129,7 +182,7 @@ public class MySQLConnector implements Backend{
 		    		+ "`surname` VARCHAR(45) NOT NULL ,"
 		    		+ "`city` VARCHAR(45) NOT NULL ,"
 		    		+ "`street` VARCHAR(45) NOT NULL ,"
-		    		+ "`postal_code` VARCHAR(5) NOT NULL ,"
+		    		+ "`postal_code` VARCHAR(6) NOT NULL ,"
 		    		+ "`building_num` INT NOT NULL ,"
 		    		+ "`apartment_num` VARCHAR(45) NULL ,"
 		    		+ "PRIMARY KEY (`customer_id`));");
@@ -147,6 +200,7 @@ public class MySQLConnector implements Backend{
 		    		+ "`assigned_to` INT NULL ,"
 		    		+ "`price` FLOAT(6,2) NOT NULL DEFAULT 0 ,"
 		    		+ "`parceltype_id` INT NOT NULL ,"
+		    		+ "`delivered_on` DATE NULL ,"
 		    		+ "PRIMARY KEY (`package_id`),"
 		    		+ "INDEX `fk_Packages_Couriers1` (`assigned_to` ASC) ,CONSTRAINT `fk_Packages_Couriers1`"
 		    		+ "FOREIGN KEY (`assigned_to` )"

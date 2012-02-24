@@ -156,8 +156,8 @@ public class Main {
 	
 	private static void commandLine()
 	{
-		//dbcon = new MySQLConnector("localhost", "schoolproject", "server", "password");
-		initMySQLData();
+		dbcon = new MySQLConnector("localhost", "schoolproject", "server", "password");
+		//initMySQLData();
 		System.out.println("\nFor instructions type help\nFor instructions about specific command type help <command>\n");
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		String com = null;

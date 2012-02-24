@@ -18,6 +18,7 @@ public class ClientCommunicator extends Thread {
 	private Server parent;
 	private volatile String login = null;
 	private volatile String password = null;
+	private volatile int id=0;
 	
 	public ClientCommunicator(Socket socket, Server parent, Backend backend)
 	{
@@ -56,6 +57,11 @@ public class ClientCommunicator extends Thread {
 	public void setPassword(String password)
 	{
 		this.password = password;
+	}
+	
+	public void setId(int id)
+	{
+		this.id = id;
 	}
 	
 	public PrintWriter getOutputStream()
