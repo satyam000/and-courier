@@ -59,9 +59,14 @@ public class ClientCommunicator extends Thread {
 		this.password = password;
 	}
 	
-	public void setId(int id)
+	public void setClientId(int id)
 	{
 		this.id = id;
+	}
+	
+	public int getClientId()
+	{
+		return id;
 	}
 	
 	public PrintWriter getOutputStream()
