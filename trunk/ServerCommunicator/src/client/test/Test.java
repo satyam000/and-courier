@@ -8,10 +8,10 @@ public class Test {
 
 	public static void main(String [] args) throws Exception
 	{
+		Client.setHostAddress("192.168.1.5");
 		Client c = Client.getInstance();
 		c.logIn("misio", "password", new ThreadLoginEvent(){
 
-			@Override
 			public void process() {
 				if (success)
 					System.out.println("logged in");
@@ -23,12 +23,11 @@ public class Test {
 				
 			}
 
-			@Override
 			public void errorOccured() {
 				System.out.println("Error login");
 				
 			}});
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
 		/*c.requestAssignedToMeParcels(new ThreadListResponseEvent(){
 
 			@Override
@@ -43,6 +42,5 @@ public class Test {
 				System.out.print("Error");
 				
 			}});*/
-		c.deliverParcel(1,null);
 	}
 }

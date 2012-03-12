@@ -17,7 +17,7 @@ public class Client {
 	private Socket socket;
 	private volatile ClientRequest ongoingMessage = null;
 	
-	private static Client instance = null;
+	private static volatile Client instance = null;
 	
 	private static String hostAddress = "localhost";
 	
@@ -42,6 +42,19 @@ public class Client {
 				instance = new Client();
 			}
 			catch(Exception e){return null;}
+		}
+		return instance;
+	}
+	
+	public synchronized static Client resetInstance()
+	{
+		try
+		{
+			instance = new Client();
+		}
+		catch(Exception e)
+		{
+			instance = null;
 		}
 		return instance;
 	}
