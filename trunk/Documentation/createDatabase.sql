@@ -43,7 +43,6 @@ CREATE  TABLE IF NOT EXISTS `schoolProject`.`Parcels` (
   `package_id` INT NOT NULL AUTO_INCREMENT ,
   `weight` FLOAT(5,2) NOT NULL ,
   `sent_on` DATE NOT NULL ,
-  `delivered` TINYINT(1) NOT NULL DEFAULT 0 ,
   `recipient_customer_id` INT NOT NULL ,
   `sender_customer_id` INT NOT NULL ,
   `assigned_to` INT NULL ,
