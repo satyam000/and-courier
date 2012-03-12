@@ -19,9 +19,16 @@ public class Client {
 	
 	private static Client instance = null;
 	
+	private static String hostAddress = "localhost";
+	
+	public static void setHostAddress(String address)
+	{
+		hostAddress = address;
+	}
+	
 	private Client() throws Exception
 	{
-		socket = new Socket("localhost",port);
+		socket = new Socket(hostAddress,port);
 		socket.setKeepAlive(true);
 		socket.setSoTimeout(5000);
 	}
