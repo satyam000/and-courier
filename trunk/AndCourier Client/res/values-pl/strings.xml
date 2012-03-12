@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AndCourier Client 1.0</string>
+    <string name="firstRun">Jako, że to twoje pierwsze uruchomienie tej aplikacji, musisz wypełnić następujące informacje</string>
+    <string name="hostAddress">Adres AndCourier Servera:</string>
+    <string name="next">Dalej</string>
+    <string name="save">Zapisz</string>
+
+</resources>
