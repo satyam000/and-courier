@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AndCourier Client 1.0</string>
+    <string name="firstRun">As this is the first time you run this application, you need to feel up following information</string>
+    <string name="hostAddress">AndCourier Server address:</string>
+    <string name="next">Next</string>
+    <string name="save">Save</string>
+    <string name="savingHost">Saving host address</string>
+    <string name="addressFirst">You have to enter host address first</string>
+    <string name="incorrectAddress">The address you entered is incorrect</string>
+    <string name="failedSaveAddress">Failed to save host address</string>
+    <string name="failedReadAddress">Failed to read host address</string>
+
+</resources>
