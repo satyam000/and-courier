@@ -1,6 +1,7 @@
 package server.communication.message;
 
 import server.communication.ClientCommunicator;
+import server.filesystem.Log;
 
 public class LoginQueryProcessor extends MessageProcessor{
 
@@ -21,13 +22,12 @@ public class LoginQueryProcessor extends MessageProcessor{
 			parent.getOutputStream().println("login:success");
 			parent.setLogin(args[0]);
 			parent.setPassword(args[1]);
-			parent.setId(id);
+			parent.setClientId(id);
 		}
 		else
 		{
 			parent.getOutputStream().println("login:fail");
 		}
-		
 	}
 
 	

@@ -25,7 +25,7 @@ public class UnassignedParcelsProcessor extends MessageProcessor{
 				first = false;
 			else
 				answer += recordSep;
-			answer += args[0] + unitSep + args[1] + unitSep + args[2] + unitSep + args[3] + unitSep + args[4] + unitSep + args[5] + unitSep + args[6] + unitSep + args[7] + unitSep + args[8] + unitSep + args[9];
+			answer += args[0] + unitSep + args[1] + unitSep + args[2] + unitSep + args[3] + unitSep + args[4] + unitSep + args[5] + unitSep + args[6] + unitSep + args[7] + unitSep + args[8] + unitSep;
 		}
 		parent.getOutputStream().println(answer);
 	}
