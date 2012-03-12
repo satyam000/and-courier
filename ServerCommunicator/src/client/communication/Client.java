@@ -2,9 +2,12 @@ package client.communication;
 
 import java.net.Socket;
 
+import client.communication.messages.AssignedToMeParcelsRequest;
 import client.communication.messages.ClientRequest;
+import client.communication.messages.DeliverParcelRequest;
 import client.communication.messages.LoginRequest;
 import client.communication.messages.UnassignedParcelsRequest;
+import client.event.ThreadEventProcessor;
 import client.event.ThreadListResponseEvent;
 import client.event.ThreadLoginEvent;
 
@@ -50,5 +53,21 @@ public class Client {
 				ongoingMessage.stop();
 			ongoingMessage = new UnassignedParcelsRequest(socket, eproc);
 			ongoingMessage.start();
+	}
+	
+	public void requestAssignedToMeParcels(ThreadListResponseEvent eproc)
+	{
+			if (ongoingMessage != null && ongoingMessage.isAlive())
+				ongoingMessage.stop();
+			ongoingMessage = new AssignedToMeParcelsRequest(socket, eproc);
+			ongoingMessage.start();
+	}
+	
+	public void deliverParcel(int parcel_id, ThreadEventProcessor eproc)
+	{
+		if (ongoingMessage != null && ongoingMessage.isAlive())
+			ongoingMessage.stop();
+		ongoingMessage = new DeliverParcelRequest(socket, eproc, parcel_id);
+		ongoingMessage.start();
 	}
 }

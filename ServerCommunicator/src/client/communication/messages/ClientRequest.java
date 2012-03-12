@@ -10,7 +10,7 @@ import client.event.ThreadEventProcessor;
 public abstract class ClientRequest extends Thread{
 	
 	protected Socket socket;
-	protected ThreadEventProcessor event;
+	protected ThreadEventProcessor event = null;
 	protected BufferedReader in;
 	protected PrintWriter out;
 	
@@ -40,8 +40,11 @@ public abstract class ClientRequest extends Thread{
 	public void run()
 	{
 		if (communicate())
-			event.process();
-		else
+		{
+			if (event != null)
+				event.process();
+		}
+		else if (event != null)
 			event.errorOccured();
 	}
 }
