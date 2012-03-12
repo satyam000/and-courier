@@ -21,7 +21,12 @@ public class LoginRequest extends ClientRequest{
 		String input = null;
 		try
 		{
-			input = in.readLine();
+			while (true)
+			{
+				input = in.readLine();
+				if (input.startsWith("login:"))
+					break;
+			}
 		}
 		catch(Exception e)
 		{
