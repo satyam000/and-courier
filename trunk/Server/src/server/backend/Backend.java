@@ -15,4 +15,8 @@ public interface Backend {
 	
 	//returns list of string arrays representing records from backend
 	public LinkedList<String[]> getUnassignedParcels();
+	
+	public LinkedList<String[]> getAssignedToMeParcels(int id);
+	
+	public void deliverParcel(int parecel_id);
 }

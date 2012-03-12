@@ -10,6 +10,10 @@ public abstract class MessageProcessorFactory {
 			return new LoginQueryProcessor(parent);
 		if (input.startsWith("unpar:"))
 			return new UnassignedParcelsProcessor(parent);
+		if (input.startsWith("aspar:"))
+			return new AssignedToMeParcelsProcessor(parent);
+		if (input.startsWith("del:"))
+			return new DeliverParcelProcessor(parent);
 		return null;
 	}
 }

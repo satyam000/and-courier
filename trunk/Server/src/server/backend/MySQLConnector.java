@@ -56,6 +56,7 @@ public class MySQLConnector implements Backend{
 		return -1;
 	}
 	
+	@Override
 	public int login(String userName, String password)
 	{
 		int id;
@@ -77,6 +78,7 @@ public class MySQLConnector implements Backend{
 		return -1;
 	}
 	
+	@Override
 	public boolean addUser(String userName, String password)
 	{
 		try
@@ -92,6 +94,7 @@ public class MySQLConnector implements Backend{
 		return false;
 	}
 	
+	@Override
 	public boolean deleteUser(String userName)
 	{
 		try
@@ -107,6 +110,7 @@ public class MySQLConnector implements Backend{
 		return false;
 	}
 	
+	@Override
 	public LinkedList<String[]> getUnassignedParcels()
 	{
 		Statement statement = null;
@@ -118,7 +122,7 @@ public class MySQLConnector implements Backend{
 			rs = statement.executeQuery("SELECT * FROM parcels WHERE assigned_to IS NULL");
 			while (rs.next())
 			{
-				String [] str = new String[10];
+				String [] str = new String[9];
 				str[0] = rs.getString(1);
 				str[1] = rs.getString(2);
 				str[2] = rs.getString(3);
@@ -128,7 +132,6 @@ public class MySQLConnector implements Backend{
 				str[6] = rs.getString(7);
 				str[7] = rs.getString(8);
 				str[8] = rs.getString(9);
-				str[9] = rs.getString(10);
 				ret.add(str);
 			}
 		}
@@ -140,21 +143,52 @@ public class MySQLConnector implements Backend{
 		return ret;
 	}
 	
-	public ResultSet getAssignedToMeParcels(int id)
+	@Override
+	public LinkedList<String[]> getAssignedToMeParcels(int id)
 	{
 		Statement statement = null;
 		ResultSet rs = null;
+		LinkedList<String[]>ret = new LinkedList<String[]>();
 		try
 		{
 			statement = connection.createStatement();
-			rs = statement.executeQuery("SELECT * FROM parcels WHERE assigned_to = " + id);
+			rs = statement.executeQuery("SELECT * FROM parcels WHERE assigned_to = " + id +" and delivered_on is null");
+			while (rs.next())
+			{
+				String [] str = new String[9];
+				str[0] = rs.getString(1);
+				str[1] = rs.getString(2);
+				str[2] = rs.getString(3);
+				str[3] = rs.getString(4);
+				str[4] = rs.getString(5);
+				str[5] = rs.getString(6);
+				str[6] = rs.getString(7);
+				str[7] = rs.getString(8);
+				str[8] = rs.getString(9);
+				ret.add(str);
+			}
 		}
 		catch(Exception e)
 		{
 			Log.getGlobal().error("Failed to retrieve assigned to me parcels information");
 			return null;
 		}
-		return rs;
+		return ret;
+	}
+	
+	public void deliverParcel(int parcel_id)
+	{
+		try
+		{
+			Statement stat = connection.createStatement();
+			stat.executeUpdate("update parcels set delivered_on = NOW() where package_id = " + parcel_id + ";");
+		}
+		catch(Exception e)
+		{
+			Log.getGlobal().error("Failed to update delivery status for parcel " + parcel_id);
+			return;
+		}
+		Log.getGlobal().event("Parcel " + parcel_id + " delivered");
 	}
 	
 	public static void deployDatabase(String serverAddress, String databaseName, String userName, String password)
@@ -194,7 +228,6 @@ public class MySQLConnector implements Backend{
 		    		+ "`package_id` INT NOT NULL AUTO_INCREMENT ,"
 		    		+ "`weight` FLOAT(5,2) NOT NULL ,"
 		    		+ "`sent_on` DATE NOT NULL ,"
-		    		+ "`delivered` TINYINT(1) NOT NULL DEFAULT 0 ,"
 		    		+ "`recipient_customer_id` INT NOT NULL ,"
 		    		+ "`sender_customer_id` INT NOT NULL ,"
 		    		+ "`assigned_to` INT NULL ,"
