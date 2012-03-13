@@ -1,6 +1,8 @@
 package client.communication;
 
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
 
 import client.communication.messages.AssignedToMeParcelsRequest;
 import client.communication.messages.ClientRequest;
@@ -31,11 +33,28 @@ public class Client {
 		return hostAddress;
 	}
 	
+	public static boolean testAddress(String address)
+	{
+		try
+		{
+			Socket socket = new Socket();
+			SocketAddress sockaddr = new InetSocketAddress(hostAddress, port);
+			socket.connect(sockaddr, 3000);
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+		return true;
+	}
+	
 	private Client() throws Exception
 	{
-		socket = new Socket(hostAddress,port);
+		socket = new Socket();
+		SocketAddress sockaddr = new InetSocketAddress(hostAddress, port);
+		socket.connect(sockaddr, 3000);
+		socket.setSoTimeout(4000);
 		socket.setKeepAlive(true);
-		socket.setSoTimeout(5000);
 	}
 	
 	public synchronized static Client getInstance()
