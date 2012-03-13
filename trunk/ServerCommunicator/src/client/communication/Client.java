@@ -26,6 +26,11 @@ public class Client {
 		hostAddress = address;
 	}
 	
+	public static String getHostAddress()
+	{
+		return hostAddress;
+	}
+	
 	private Client() throws Exception
 	{
 		socket = new Socket(hostAddress,port);
