@@ -4,9 +4,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
-import client.communication.Client;
-
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -14,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import client.communication.Client;
 
 public class AndCourierClientActivity extends Activity {
     
@@ -32,6 +32,7 @@ public class AndCourierClientActivity extends Activity {
         	in.read(arr);
         	String temp = new String(arr);
         	address.setText(temp.trim());
+        	Client.setHostAddress(address.getText().toString());
         }
         catch (FileNotFoundException e)
         {
@@ -43,7 +44,7 @@ public class AndCourierClientActivity extends Activity {
         	return;
         }
         
-        //startActivity(new Intent(this, LoginActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
     }
     
     public void saveClicked(View v)
@@ -55,6 +56,10 @@ public class AndCourierClientActivity extends Activity {
     	}
     	else
     	{
+			ProgressDialog savingDial = new ProgressDialog(this);
+			savingDial.setCancelable(false);
+			savingDial.setMessage(res.getString(R.string.savingHost));
+			savingDial.show();
     		Client.setHostAddress(address.getText().toString());
     		Client c = Client.getInstance();
     		if (c == null)
@@ -63,12 +68,12 @@ public class AndCourierClientActivity extends Activity {
     		}
     		else
     		{
-		    	Toast.makeText(this, res.getString(R.string.savingHost), Toast.LENGTH_SHORT).show();
 		    	try
 		    	{
 			    	FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
 			    	fos.write(address.getText().toString().getBytes());
 			    	fos.close();
+			    	savingDial.hide();
 			    	startActivity(new Intent(this, LoginActivity.class));
 		    	}
 		    	catch(Exception e){

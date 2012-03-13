@@ -6,5 +6,17 @@
     <string name="hostAddress">Adres AndCourier Servera:</string>
     <string name="next">Dalej</string>
     <string name="save">Zapisz</string>
-
+	<string name="savingHost">Zapisywanie adresu hosta</string>
+    <string name="addressFirst">Musisz najpierw podać adres hosta</string>
+    <string name="incorrectAddress">Podany adres jest niewłaściwy</string>
+    <string name="failedSaveAddress">Wystąpił błąd podczas zapisu adresu hosta</string>
+    <string name="failedReadAddress">Wystąpił błąd podczas odczytu adresu hosta</string>
+    <string name="login">Login</string>
+    <string name="password">Hasło</string>
+    <string name="connect">Połącz</string>
+    <string name="loggingin">Logowanie...</string>
+    <string name="loginFirst">Musisz najpierw podać swój login</string>
+    <string name="passwordFirst">Musisz najpierw podać hasło</string>
+    <string name="incorrectCredentials">Nieprawidłowy login lub hasło</string>
+    <string name="communicationFail">Serwer, z którym próbujesz się połączyć, nie odpowiada</string>
 </resources>

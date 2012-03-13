@@ -8,8 +8,16 @@
     <string name="save">Save</string>
     <string name="savingHost">Saving host address</string>
     <string name="addressFirst">You have to enter host address first</string>
-    <string name="incorrectAddress">The address you entered is incorrect</string>
+    <string name="incorrectAddress">The address you entered is not correct</string>
     <string name="failedSaveAddress">Failed to save host address</string>
     <string name="failedReadAddress">Failed to read host address</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="connect">Connect</string>
+    <string name="loggingin">Logging in...</string>
+    <string name="loginFirst">You have to enter your login before proceeding</string>
+    <string name="passwordFirst">You have to enter your password before proceeding</string>
+    <string name="incorrectCredentials">The login or password you entered are not correct</string>
+    <string name="communicationFail">The server you\'re trying to reach is not responding</string>
 
 </resources>
