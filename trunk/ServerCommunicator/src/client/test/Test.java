@@ -8,7 +8,13 @@ public class Test {
 
 	public static void main(String [] args) throws Exception
 	{
-		Client.setHostAddress("192.168.1.5");
+		if (Client.testAddress("hermenegild"))
+		{
+			System.out.println("ok");
+		}
+		else
+			System.out.println("fail");
+		/*Client.setHostAddress("192.168.1.5");
 		Client c = Client.getInstance();
 		c.logIn("misio", "password", new ThreadLoginEvent(){
 
