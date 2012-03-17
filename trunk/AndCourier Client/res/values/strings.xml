@@ -19,5 +19,6 @@
     <string name="passwordFirst">You have to enter your password before proceeding</string>
     <string name="incorrectCredentials">The login or password you entered are not correct</string>
     <string name="communicationFail">The server you\'re trying to reach is not responding</string>
-
+	<string name="changeAddress">Change server address</string>
+	<string name="failedSaveLogin">Failed to save your login</string>
 </resources>
