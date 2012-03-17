@@ -15,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import client.communication.Client;
 import client.event.ThreadLoginEvent;
@@ -55,6 +56,14 @@ public class LoginActivity extends Activity{
         }
         catch(Exception e)
         {}
+        
+	}
+	
+	@Override
+	public void onStart()
+	{
+		super.onStart();
+		((TextView)this.findViewById(R.id.hostAddressText)).setText(Client.getHostAddress());
 	}
 	
 	@Override
