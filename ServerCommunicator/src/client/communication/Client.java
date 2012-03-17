@@ -25,6 +25,15 @@ public class Client {
 	
 	public static void setHostAddress(String address)
 	{
+		if (instance != null)
+		{
+			try
+			{
+				instance.socket.close();
+			}
+			catch(Exception e){}
+			instance = null;
+		}
 		hostAddress = address;
 	}
 	
@@ -38,8 +47,8 @@ public class Client {
 		try
 		{
 			Socket socket = new Socket();
-			SocketAddress sockaddr = new InetSocketAddress(hostAddress, port);
-			socket.connect(sockaddr, 3000);
+			SocketAddress sockaddr = new InetSocketAddress(address, port);
+			socket.connect(sockaddr, 4000);
 		}
 		catch(Exception e)
 		{
@@ -52,7 +61,7 @@ public class Client {
 	{
 		socket = new Socket();
 		SocketAddress sockaddr = new InetSocketAddress(hostAddress, port);
-		socket.connect(sockaddr, 3000);
+		socket.connect(sockaddr, 4000);
 		socket.setSoTimeout(4000);
 		socket.setKeepAlive(true);
 	}
