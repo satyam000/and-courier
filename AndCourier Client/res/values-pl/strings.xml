@@ -19,4 +19,6 @@
     <string name="passwordFirst">Musisz najpierw podać hasło</string>
     <string name="incorrectCredentials">Nieprawidłowy login lub hasło</string>
     <string name="communicationFail">Serwer, z którym próbujesz się połączyć, nie odpowiada</string>
+    <string name="changeAddress">Zmień adres serwera</string>
+    <string name="failedSaveLogin">Wystąpił błąd podczas zapisu loginu</string>
 </resources>
