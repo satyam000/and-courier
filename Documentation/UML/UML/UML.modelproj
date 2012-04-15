@@ -17,6 +17,13 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" />
   <ItemGroup>
+    <Content Include="ClientClassDiagram.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ClientClassDiagram.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ClientClassDiagram.classdiagram</DependentUpon>
+    </Content>
     <Content Include="ModelDefinition\Package1_1231.uml">
       <SubType>Content</SubType>
     </Content>
@@ -32,12 +39,31 @@
     <Content Include="ModelDefinition\Package_1231.uml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ModelDefinition\Package_1246.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1248.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1250.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1315.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ServerClassDiagram.classdiagram">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ServerClassDiagram.classdiagram.layout">
       <SubType>Content</SubType>
       <DependentUpon>ServerClassDiagram.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ServerCommunicatorClassDiagram.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ServerCommunicatorClassDiagram.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ServerCommunicatorClassDiagram.classdiagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\UML.uml">

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="429736a2-b6c3-40ea-b98a-0c6a82051b0a" name="ClientClassDiagram" linkedPackageId="f62234ac-6c21-4901-9d8e-532438c9eef0" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="25ee6749-9687-4a3b-80d8-bb9311d67267">
+      <profileInstance Id="7eefd982-2c02-48f4-9491-3efb67d8b070" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="af91146b-c300-42db-b005-1d4a9e61bb6d">
+      <profileInstance Id="82b95efd-0cb0-41fb-9173-defeb9752cf1" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="2eb275cb-a876-4d01-be9d-4c0fe7a9c1bd" name="andourier.activities">
+        <elementDefinition Id="10d3d808-a443-4f5e-951f-3f87cf4fa239" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="42791179-449d-4736-8cf7-270781413d37" name="AndCourierClientActivity" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="3061df6b-850f-4e0f-979d-4da61eed2433" />
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+  </packagedElements>
+  <package Id="f62234ac-6c21-4901-9d8e-532438c9eef0" name="UML">
+    <elementDefinition Id="5080fbf7-8e13-48c3-9c12-6137c6dab2aa" />
+  </package>
+</logicalClassDesignerModel>

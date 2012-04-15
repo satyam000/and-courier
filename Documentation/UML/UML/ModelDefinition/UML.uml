@@ -181,6 +181,46 @@
         LastKnownName="server.maiin"
         LastKnownLocation="Package1_1231.uml" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="643b9a72-3880-4bff-bc9d-51ec22cabe95"
+        name="Class3"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="10d3d808-a443-4f5e-951f-3f87cf4fa239"
+        LastKnownName="andourier.activities"
+        LastKnownLocation="Package_1246.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="8d7efa94-032d-4bf3-8130-f8f3eda8a805"
+        LastKnownName="client.communication"
+        LastKnownLocation="Package_1248.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="436c0c21-c945-4463-ae13-dedad5a2bf06"
+        LastKnownName="client.communication.messages"
+        LastKnownLocation="Package_1250.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a569ebc4-8de9-4cce-ba05-c62c48e08c0a"
+        name="Thread"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="aabcae99-d28a-4a60-b6ab-61de4794a37a"
+        LastKnownName="client.event"
+        LastKnownLocation="Package_1315.uml" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
