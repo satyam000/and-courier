@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="5080fbf7-8e13-48c3-9c12-6137c6dab2aa"
+  name="UML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="675bdd69-85e3-43f9-9abb-4b7e272a5988"
+        name="boolean" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="aa71fb02-f75a-4f09-804a-1c9a4b8fa95d"
+        name="Log" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="31fd9479-0f8d-4c15-b277-86fc21e280d9"
+        name="FileWriter" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c7040855-30a2-4dfa-8e7a-1d7a9e847bb8"
+        name="server.backend.Backend"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="87055677-e0d8-46bb-9af4-17f29ee0835e"
+        name="int" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="529dd6b9-3a45-46d3-a5e4-4859d31c7ccd"
+        name="LinkedList&lt;String&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="2f5ae385-0612-4904-9f79-1bd6a2ae82a1"
+        name="LinkedList&lt;string[]&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="d2c79387-bf44-48b9-8159-7d87c12405a8"
+        name="LinkedList&lt;String[]&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="dbba9d1b-30bf-48e8-8387-b84c05fdd330"
+        name="java.sql.Connection" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="f68c6774-b413-4db2-a6a1-b8a171fc0d59"
+        name="ServerSocket" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="ec8c311b-2ff5-4fdc-a8de-7ca14bc2f80f"
+        name="Server" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="fd46306d-abf4-4d23-a7b2-a974e5ef0359"
+        name="Backend" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9658be23-6624-4c98-a66e-7bb9039c7ed6"
+        name="Thread"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="e185e034-14aa-4be9-b051-1fa7190379f9"
+        name="Socket" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="e8e3a446-d34f-4663-bdb7-52ddc1bf3f49"
+        name="BufferedReader" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="e3814756-c2e4-4903-99f4-9f458eb9462b"
+        name="PrintWriter" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="6d3a37f4-953a-4af2-9874-c7dec76fdf08"
+        name="OutputStream" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="f0830462-576a-4275-804d-3ac5d99fad6f"
+        name="MessageProcessor" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e87836f0-cb95-47a1-bb90-e3c6a51ec082"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="7146be99-18ea-4f4d-9f59-1373d5b1f932"
+            isSubstitutable="false">
+            <classMoniker
+              Id="1cd47834-abca-4349-8717-c7f9ab5d7cc5"
+              LastKnownName="MessageFactory"
+              LastKnownLocation="Package_1215.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="cd6fc406-2fed-4645-9065-367c0d3cfc42"
+        name="Class2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="8c4fa9f7-e30c-49b6-8072-061d69b9f7f1"
+        name="char" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="41ab8140-212e-4931-852c-28585d611003"
+        name="ClientCommunicator" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="9a3b0cec-8dde-435b-b531-1fc5e97fd070"
+        LastKnownName="server.communication.message"
+        LastKnownLocation="Package_1215.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="8afe1cb0-c659-4a71-ac8e-cbefe5f1b8b1"
+        LastKnownName="server.communication"
+        LastKnownLocation="Package_1217.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="21502dbd-9b48-4137-a7e7-1f6fcf2d8d8f"
+        LastKnownName="server.backend"
+        LastKnownLocation="Package_1229.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="9da8641c-7592-4ee6-b558-d313233db2e3"
+        LastKnownName="server.filesystem"
+        LastKnownLocation="Package_1231.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="604a3d30-3397-4e96-b1c2-9f69bb2f7b37"
+        LastKnownName="server.maiin"
+        LastKnownLocation="Package1_1231.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
