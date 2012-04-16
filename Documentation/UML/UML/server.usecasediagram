@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="7e1b15c5-c29d-4a19-b9e7-1e827bbf2b9a" name="server" linkedPackageId="d6ede9a7-9a6c-4c4a-afc8-0e862edf649d" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="c4abc43d-bc89-467e-bed6-f28eb38f58cd">
+      <profileInstance Id="f2d2cafb-9196-475e-bbf8-c8e03cf35aea" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="fd9ebfda-a619-43e4-a0f4-e349f6924661">
+      <profileInstance Id="e84530d2-b47e-42a0-9027-6639c734a04c" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="e7f461b6-a0e5-4505-80f5-824e47fdf50b" name="User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b615b191-f5c0-47a6-83d8-023105c3fa66" />
+        <targetEnds>
+          <association Id="09e63230-10a9-4b52-9d2d-0e9768d31953" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Starting server" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e7e70e5b-5059-4ec4-a1a7-8c85081c9ae2" LastKnownName="Starting server" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b7f3987a-aea9-4288-80b6-a5aeb41d19fc" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0c05c9cf-a20f-4db9-b8f0-6d5debe2b074" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="33441e50-7201-4e79-9506-f35b52a864b0" name="Starting server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3ffe5e2b-8cb4-42a9-9493-befe7e77775f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9f060e5e-1cac-443f-8f3f-1e27ff608042" />
+          </association>
+          <association Id="d27a0303-c771-45db-9475-f018da6a8b04" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Adding user" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="7521a60d-f566-4964-9398-51a07e737326" LastKnownName="Adding user" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="85063c3b-45c1-407b-8ecf-3e738a913f2b" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d385ee32-f139-43b9-a4c9-a7067741eb97" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cc8e401c-06a8-4d91-8186-fb989dda02bb" name="Adding user" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="87fa93c1-8c54-48e5-86d7-74a731980e0f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a64e5a92-a380-4a0e-8c02-62fb944cc87a" />
+          </association>
+          <association Id="3dbe66b2-1aee-46fe-be95-f24d9cc32261" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Removing user" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="3cbe22fd-3e99-45d5-815b-9f722c387988" LastKnownName="Removing user" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="486b1cc4-8f0f-48e8-8ad4-fa1d506b12e8" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2169172c-3520-4e7d-8407-ae358d5187ab" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d8641822-7143-4e3d-978f-fda6b17e2532" name="Removing user" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b54c933e-376b-4bfb-9535-ca609984317e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="33796f92-49fc-4965-9d06-d77ee30522be" />
+          </association>
+          <association Id="561145e8-0617-411e-88ce-3d46cfe67345" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Stopping server" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="8825590d-1353-48be-9150-8c5cf88bc29b" LastKnownName="Stopping server" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c7ec74cc-874d-4947-b705-73b6b2e7c35f" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="03900c97-fcd2-4169-8490-6726bce11870" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a38b92b7-1e0a-476f-8a3d-7c2c687bb5fc" name="Stopping server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="21347df6-84c8-44df-aacd-68d70b40c32d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="60c94439-e39f-4585-b639-0a51e75f1522" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="6a5c50cb-a132-494d-b5a0-eb0924a3b00d" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a70f4b5b-5292-4557-aee2-611cc01fcce5" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="e7e70e5b-5059-4ec4-a1a7-8c85081c9ae2" name="Starting server" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="72cf0b88-5f69-4413-9705-971f9b76bb26" />
+        <subjects>
+          <subsystemMoniker Id="6a5c50cb-a132-494d-b5a0-eb0924a3b00d" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="7521a60d-f566-4964-9398-51a07e737326" name="Adding user" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="66f36f5b-38f1-43f3-b7ce-c89d179e51bf" />
+        <subjects>
+          <subsystemMoniker Id="6a5c50cb-a132-494d-b5a0-eb0924a3b00d" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="3cbe22fd-3e99-45d5-815b-9f722c387988" name="Removing user" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7df1f47b-e803-4adf-aa4c-f0ddc3ebfc4d" />
+        <subjects>
+          <subsystemMoniker Id="6a5c50cb-a132-494d-b5a0-eb0924a3b00d" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="8825590d-1353-48be-9150-8c5cf88bc29b" name="Stopping server" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="58310f94-1220-4410-bb98-3abcda525bff" />
+        <subjects>
+          <subsystemMoniker Id="6a5c50cb-a132-494d-b5a0-eb0924a3b00d" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="d6ede9a7-9a6c-4c4a-afc8-0e862edf649d" name="UML">
+    <elementDefinition Id="5080fbf7-8e13-48c3-9c12-6137c6dab2aa" />
+  </package>
+</useCaseModelRoot>

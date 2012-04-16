@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="fda77202-ac7b-40e5-8447-03bfc610ad6c" name="client" linkedPackageId="5a78e910-c522-424c-9a6a-3e36f5319c3e" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="cbb9d0dc-885f-4c07-beec-9ec41ebdc120">
+      <profileInstance Id="1a333812-214a-47ea-bed3-b1afe9000800" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="f868b944-431d-4074-86bb-20635be0c2ce">
+      <profileInstance Id="00f8cc90-3363-4a13-88f7-fd9e163a4d9c" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="01abbf5d-381f-42c1-9dd2-6980c18f4dbd" name="User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="abccfc8a-f39e-4aaa-8e2e-6c6a6d01bde3" />
+        <targetEnds>
+          <association Id="eda0cf8d-41f7-4ae6-afec-f3f7cee1d2e9" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Logging " isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d86461d2-eafa-4458-8a84-0699233ad663" LastKnownName="Logging " />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e01d62b9-9b2e-40a6-bb6a-855bbb792ab3" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="031e1b58-3c15-4aea-9e7d-00cd85d758b1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bdb0b56e-2194-47a8-81cf-1490f261e49d" name="Logging " isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="fca88026-ba84-40d0-9460-5cf4127afaa5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d989cb5c-e7bf-4f69-a3cd-6b7e9f3647b1" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="ca1b9d1d-435f-4af6-af99-6e9094722e36" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c53cdba5-47aa-4b36-a38d-987bf1f6a879" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="d86461d2-eafa-4458-8a84-0699233ad663" name="Logging " isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0047de9b-35d3-4bff-9d44-219df469d922" />
+        <suppliersInternal>
+          <dependency Id="f5580489-db24-4876-aecb-de71d2e74843">
+            <actorMoniker Id="323e0052-2692-4f9a-a81c-ff5453d1863d" LastKnownName="Server" />
+            <elementDefinition Id="37d7dba4-88b8-4a4d-b44f-cc2a94632e60" />
+          </dependency>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="291c967e-f421-4627-bf3f-89a1d8c317a7" isDerived="false" sourceEndRoleName="Logging " targetEndRoleName="Main screeen" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2c07cf5e-0f18-48f6-96e8-6c8efe8a517d" LastKnownName="Main screeen" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a5aa35dc-20e8-4567-bafa-0de6c0d996a0" name="Logging " isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="aa0c8d4b-a67b-4f50-bc62-336e9fcc01e8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="900b4399-31de-4565-9f00-75f77f3a3cef" name="Main screeen" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ff3388ab-684e-411d-b84b-1e21847c4a55" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="59017144-d4ba-4a77-8133-fe357efe2b6e" />
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend Id="f1f67570-1b09-44b7-8f23-34d70ee7ddd0">
+            <useCaseMoniker Id="4fdab035-4d2b-4cb3-8822-34d3bdf3a33d" LastKnownName="Setting server address" />
+            <elementDefinition Id="8e1e29d2-30f5-46f1-afd6-f1b09b3f1ae0" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="ca1b9d1d-435f-4af6-af99-6e9094722e36" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="4fdab035-4d2b-4cb3-8822-34d3bdf3a33d" name="Setting server address" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b7e6fd85-ee29-4d90-b7bf-1283a57e4634" />
+        <subjects>
+          <subsystemMoniker Id="ca1b9d1d-435f-4af6-af99-6e9094722e36" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="2c07cf5e-0f18-48f6-96e8-6c8efe8a517d" name="Main screeen" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0bde9f93-68be-467c-b25d-4a5b474adf55" />
+        <extendedCases>
+          <extend Id="cf9605f7-2201-4d58-9e17-28f6e71d184b">
+            <useCaseMoniker Id="921566df-d447-4920-9c47-a1bbfabf8b44" LastKnownName="Delivered parcels" />
+            <elementDefinition Id="88e52a2b-c3d7-4d2a-9f97-dadc17faefea" />
+          </extend>
+          <extend Id="bf7c91e1-dd35-4785-934e-f9995e2a139c">
+            <useCaseMoniker Id="9056af94-90a4-4edc-abee-d472a4b017cc" LastKnownName="Undelivered parcels" />
+            <elementDefinition Id="d179059f-a196-4d6b-a0f1-5351dbaa27c7" />
+          </extend>
+          <extend Id="7967772d-32b0-4a33-907c-7ff9bde3921e">
+            <useCaseMoniker Id="8e5e9a9a-6d90-4501-8a92-524dd673a95f" LastKnownName="Undelivered, unassigned parcels" />
+            <elementDefinition Id="eabacc6f-46b4-4f69-91c1-fa5b75822391" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="ca1b9d1d-435f-4af6-af99-6e9094722e36" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="921566df-d447-4920-9c47-a1bbfabf8b44" name="Delivered parcels" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c9d2af8c-494a-41cc-adce-81464d0d5840" />
+        <targetEnds>
+          <association Id="8647e01b-f1f2-4d99-85fc-97afd4b09f85" isDerived="false" sourceEndRoleName="Delivered parcels" targetEndRoleName="Server" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="ce4a3a0e-c696-43a4-a5b7-749c8b465885" LastKnownName="Server" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d81b5c7d-4fe5-412f-ac6e-ca59c052b56f" name="Delivered parcels" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0ecfaade-edbb-48cc-be95-1346a271aaf6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="20a2a26d-1ad6-4a2b-a377-cd52e8c44c6b" name="Server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e0860821-3a35-4eca-88d4-a8a610d7cb31" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5791cfa3-b4f1-4a68-9100-d0495b3a51f3" />
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend Id="0e7aaf8d-574f-440a-8e86-a88da6054c49">
+            <useCaseMoniker Id="da036762-07b3-46c8-95de-11dc53a6869f" LastKnownName="Detail Screen" />
+            <elementDefinition Id="3438a5fb-3580-48c5-847a-a461daeae968" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="ca1b9d1d-435f-4af6-af99-6e9094722e36" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="9056af94-90a4-4edc-abee-d472a4b017cc" name="Undelivered parcels" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="283dd1cc-65e2-4ec2-89fc-c4b3a5be6dd9" />
+        <targetEnds>
+          <association Id="353e7a5e-876d-4585-b7fd-b0ecbccdcbbf" isDerived="false" sourceEndRoleName="Undelivered parcels" targetEndRoleName="Server" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="ce4a3a0e-c696-43a4-a5b7-749c8b465885" LastKnownName="Server" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="85dae6d8-3526-42b4-b03a-9aa6cddae720" name="Undelivered parcels" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6efd8be1-698f-42ac-bd68-1a13a6df6400" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8d06b64c-f097-4cd6-8487-bdd0310e041d" name="Server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="cb5f8329-b123-4f5b-bc33-af693b391016" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="696766ab-0cc3-4fef-9110-38721f79364a" />
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend Id="f237bd90-8069-405b-9f2f-9174084513ef">
+            <useCaseMoniker Id="da036762-07b3-46c8-95de-11dc53a6869f" LastKnownName="Detail Screen" />
+            <elementDefinition Id="5eef64b5-2c3b-40e8-9c87-03c3837eb971" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="ca1b9d1d-435f-4af6-af99-6e9094722e36" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="8e5e9a9a-6d90-4501-8a92-524dd673a95f" name="Undelivered, unassigned parcels" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0190317a-6d0d-44cb-96d1-b25329ce3d73" />
+        <targetEnds>
+          <association Id="525d9375-e6e0-4aeb-9832-ce6a3c95e692" isDerived="false" sourceEndRoleName="Undelivered, unassigned parcels" targetEndRoleName="Server" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="ce4a3a0e-c696-43a4-a5b7-749c8b465885" LastKnownName="Server" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="859e9faa-f313-42b0-b8bb-0ea354aef441" name="Undelivered, unassigned parcels" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="24256fd3-8b28-411c-8178-5d64f115efd4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b535e321-bb97-4b45-bc2d-a9e6d09332a9" name="Server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8d1acd24-ed6b-4f61-a44a-af68a04ee8e3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="36b4d302-6e5c-4036-8b39-5207ba0ef5f6" />
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend Id="0d7616bd-bdd2-4936-a983-7a0aa0e2f12b">
+            <useCaseMoniker Id="da036762-07b3-46c8-95de-11dc53a6869f" LastKnownName="Detail Screen" />
+            <elementDefinition Id="6c50f1a1-7bcd-4aa7-8470-0a7093aac6ae" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="ca1b9d1d-435f-4af6-af99-6e9094722e36" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="da036762-07b3-46c8-95de-11dc53a6869f" name="Detail Screen" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7f60b011-e3c3-4c45-bd51-e21fb7321ee0" />
+        <targetEnds>
+          <association Id="d23e80c1-4290-4fda-84b6-8111b89f9946" isDerived="false" sourceEndRoleName="Detail Screen" targetEndRoleName="Server" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="ce4a3a0e-c696-43a4-a5b7-749c8b465885" LastKnownName="Server" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9e1bb7b6-c4ac-4454-b2f3-c2502d40b5d3" name="Detail Screen" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="af7a4ea7-2e5d-44ea-b2e2-acf625f0e153" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="55543505-e9ab-47da-bba6-ae3ebf5edc85" name="Server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="279ee4c7-76ca-478f-9887-a13b55936b3f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a1697157-24b2-4583-90be-9e0504fe85a7" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="ca1b9d1d-435f-4af6-af99-6e9094722e36" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <actor Id="ce4a3a0e-c696-43a4-a5b7-749c8b465885" name="Server" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1f53c60a-4d87-4ae2-84ae-9d199fa908a5" />
+        <targetEnds>
+          <association Id="329f48f4-256a-4bbe-8a44-d688e0e7af22" isDerived="false" sourceEndRoleName="Server" targetEndRoleName="Delivered parcels" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="921566df-d447-4920-9c47-a1bbfabf8b44" LastKnownName="Delivered parcels" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="55b7d13b-e13a-4404-85aa-d6ce47aab410" name="Server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f11829d0-2c46-4bf8-a7e4-9c3c8b805794" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="75bb38c1-a040-409c-85e1-18d39cf16217" name="Delivered parcels" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0fa82a88-fa95-4066-8c28-001d6fd229bf" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4b0c2780-c9ce-41a1-b042-68d633e33de1" />
+          </association>
+          <association Id="da15ae67-0f1d-484e-9fc3-f5926240fb4e" isDerived="false" sourceEndRoleName="Server" targetEndRoleName="Undelivered parcels" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9056af94-90a4-4edc-abee-d472a4b017cc" LastKnownName="Undelivered parcels" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="65a8b7ee-143e-4927-85da-3cf67124cd7a" name="Server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="db14bf9a-1e72-48bd-8032-1b5bfbed3f9d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="75febf98-94c9-4d7f-910b-17087104eaa8" name="Undelivered parcels" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4529a34c-4141-4d80-90bf-bda07f22e015" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b35675ff-52c4-4c73-b06e-79df3f227738" />
+          </association>
+          <association Id="77e3ba57-3cc9-4c76-8d1c-a7867ffcdc5e" isDerived="false" sourceEndRoleName="Server" targetEndRoleName="Detail Screen" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="da036762-07b3-46c8-95de-11dc53a6869f" LastKnownName="Detail Screen" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="16ae13e6-d2b3-4c6f-a106-29c9caea8327" name="Server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5c3faaf1-85f1-4c45-b775-cb71a08aa276" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a34b6263-51d4-47d6-abf3-65a06ce998b0" name="Detail Screen" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="30f56acf-3c29-4208-9cff-0e44914b6c9b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="160296fb-60fe-4e0c-a7a7-c9098deee28c" />
+          </association>
+          <association Id="56223c65-5505-4cb4-94ff-e3d8f937af5b" isDerived="false" sourceEndRoleName="Server" targetEndRoleName="Undelivered, unassigned parcels" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="8e5e9a9a-6d90-4501-8a92-524dd673a95f" LastKnownName="Undelivered, unassigned parcels" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="40d819c0-aa39-4b22-971a-bd5120c9110f" name="Server" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b5a6e2ce-26ee-460e-8705-789639969bd4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="06f57b5d-7436-46b8-9d83-33643a9554eb" name="Undelivered, unassigned parcels" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="578116f4-0129-4151-9805-67c539ef11e6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2e7117e2-8fde-49f5-9d15-85b3e174e676" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="323e0052-2692-4f9a-a81c-ff5453d1863d" name="Server" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d40f6f20-fba2-4f61-9f8a-49044a781133" />
+        <suppliersInternal>
+          <dependency Id="91466736-d6aa-4d8a-9767-221a3b9917a1">
+            <useCaseMoniker Id="d86461d2-eafa-4458-8a84-0699233ad663" LastKnownName="Logging " />
+            <elementDefinition Id="7640e566-5635-4a02-ad3e-c5063b3ab712" />
+          </dependency>
+        </suppliersInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="5a78e910-c522-424c-9a6a-3e36f5319c3e" name="UML">
+    <elementDefinition Id="5080fbf7-8e13-48c3-9c12-6137c6dab2aa" />
+  </package>
+</useCaseModelRoot>
