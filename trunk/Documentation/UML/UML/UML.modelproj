@@ -24,6 +24,13 @@
       <SubType>Content</SubType>
       <DependentUpon>ClientClassDiagram.classdiagram</DependentUpon>
     </Content>
+    <Content Include="ClientCommunication.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ClientCommunication.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ClientCommunication.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="ModelDefinition\Package1_1231.uml">
       <SubType>Content</SubType>
     </Content>
@@ -50,6 +57,13 @@
     </Content>
     <Content Include="ModelDefinition\Package_1315.uml">
       <SubType>Content</SubType>
+    </Content>
+    <Content Include="server.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="server.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>server.sequencediagram</DependentUpon>
     </Content>
     <Content Include="ServerClassDiagram.classdiagram">
       <SubType>Content</SubType>
