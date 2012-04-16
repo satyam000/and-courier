@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="429736a2-b6c3-40ea-b98a-0c6a82051b0a" name="ClientClassDiagram" linkedPackageId="f62234ac-6c21-4901-9d8e-532438c9eef0" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="25ee6749-9687-4a3b-80d8-bb9311d67267">
-      <profileInstance Id="7eefd982-2c02-48f4-9491-3efb67d8b070" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="af91146b-c300-42db-b005-1d4a9e61bb6d">
-      <profileInstance Id="82b95efd-0cb0-41fb-9173-defeb9752cf1" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasPackages>
       <package Id="2eb275cb-a876-4d01-be9d-4c0fe7a9c1bd" name="andourier.activities">
@@ -22,13 +8,380 @@
           <packageHasNamedElement>
             <class Id="42791179-449d-4736-8cf7-270781413d37" name="AndCourierClientActivity" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="3061df6b-850f-4e0f-979d-4da61eed2433" />
+              <generalsInternal>
+                <generalization Id="e7333584-b5d8-47e9-9e2c-1202d242a01d" isSubstitutable="false">
+                  <classMoniker Id="873e2937-4000-4cc5-ad5d-422034a25abf" LastKnownName="android.app.Activity" />
+                  <elementDefinition Id="f3bd0041-cdfb-489e-b224-41f4eb7de6b2" />
+                </generalization>
+              </generalsInternal>
+              <ownedAttributesInternal>
+                <property Id="bf771c01-39b9-4e32-b5a4-911066f33b66" name="FILENAME" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7c8f2c75-a12b-4967-925d-a84de1b52ba6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e943c7ec-c3da-47b1-93f3-86678c651d81" LastKnownName="String" />
+                  </type_NamedElement>
+                </property>
+                <property Id="b122f449-35e5-42e6-86ce-4ca54b6676c3" name="address" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3805426b-e0fb-4867-9dfa-864961a03ae9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2fd6d1fc-545f-4770-ae3d-3c21db267384" LastKnownName="EditText" />
+                  </type_NamedElement>
+                </property>
+                <property Id="06be4862-a931-4418-b0e0-2d59ea24dc5f" name="loginCaller" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c0f9b7e1-d09f-4230-becc-6387265b6fa9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="8235b9e6-df79-4f14-9926-2e3f6c7f70aa" LastKnownName="boolean" />
+                  </type_NamedElement>
+                </property>
+                <property Id="8e513807-8b14-4ebd-831f-1fdea8b035c9" name="handler" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="40dc1232-ce5b-4514-a678-804ff2a742e3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="30cf6777-effe-46db-9f7d-7e45361fc61b" LastKnownName="Handler" />
+                  </type_NamedElement>
+                </property>
+                <property Id="c4bbbb39-f614-4f74-a128-a6b0c67a5758" name="savingDial" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="154a7039-a4d8-4e1b-8cc6-398363a75c06" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="71ef5d41-1bc2-459f-b19d-c5a153695148" LastKnownName="ProgressDialog" />
+                  </type_NamedElement>
+                </property>
+              </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="50820d74-2a76-4324-a2b7-4b63da50f338" name="onCreate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="b5990bad-f848-470f-92d8-63689154ee4e" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="39eeaef7-c278-4892-ac59-791508c4ae0e" name="Bundle savedInstanceState" direction="In" isUnique="false">
+                        <elementDefinition Id="35c60af6-7479-40d3-9f00-0474600fd375" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="bf550ab6-0506-45dd-8dae-dce07ed11223" name="onPause" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="84913e37-0fd0-429b-903e-76a0e8d4a3d2" />
+                </operation>
+                <operation Id="bda94ece-e1ce-41c4-9064-73c38751f7b7" name="saveClicked" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="48b23d04-d035-46be-81fc-d222870f3f53" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="52c94f38-0c52-447d-9532-ff92318384c9" name="View v" direction="In" isUnique="false">
+                        <elementDefinition Id="b1c25e2e-d949-4a51-bc47-2e3f94108f06" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="550436a6-590d-49d9-a902-9f41b8ea3bad" name="LoginActivity" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="b497101c-eb30-4d35-bf5b-b57bb1119a26" />
+              <generalsInternal>
+                <generalization Id="74c17b32-e313-4b93-be89-0f667c8fe1e0" isSubstitutable="false">
+                  <classMoniker Id="873e2937-4000-4cc5-ad5d-422034a25abf" LastKnownName="android.app.Activity" />
+                  <elementDefinition Id="fd530df3-824e-4256-8e1a-79d37b9e0498" />
+                </generalization>
+              </generalsInternal>
+              <ownedAttributesInternal>
+                <property Id="4f2ddc08-3034-4600-9c1d-553873f201cd" name="login" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="94ba2e4c-cd3a-4c3c-9e52-5525935a8419" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2fd6d1fc-545f-4770-ae3d-3c21db267384" LastKnownName="EditText" />
+                  </type_NamedElement>
+                </property>
+                <property Id="f655b005-e470-4721-97a1-3312f591654d" name="password" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="fa957c23-e234-4c44-9089-24790da453bf" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2fd6d1fc-545f-4770-ae3d-3c21db267384" LastKnownName="EditText" />
+                  </type_NamedElement>
+                </property>
+                <property Id="364d69c8-d209-4fc1-91e5-b565d3ea0daa" name="loggingDial" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="07f43f87-976e-4fec-a8e7-7aedc1e4ebd2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="71ef5d41-1bc2-459f-b19d-c5a153695148" LastKnownName="ProgressDialog" />
+                  </type_NamedElement>
+                </property>
+                <property Id="6fd63079-e478-48aa-a004-8a63db619339" name="res" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8786855f-d699-4403-96b6-5a0612997b03" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="83a1e30f-274d-4f40-aed8-28fbdfa431e6" LastKnownName="Resources" />
+                  </type_NamedElement>
+                </property>
+                <property Id="f1cb1d9c-a3a0-4f28-b32a-c02091617dde" name="FILENAME" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4d391ed9-aeeb-4cbc-a957-d682efef6df6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1f0e77cc-c8b0-4583-bf99-e6a4d32afc4a" LastKnownName="String" />
+                  </type_NamedElement>
+                </property>
+                <property Id="aa7fd32f-5a5f-4d2f-833f-fa99debe7825" name="handler" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c494ec9b-d2ba-4e72-b8a6-6a23a5b6227c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a3c6d7df-98a7-48b2-a7d2-05abdfe18606" LastKnownName="Handler" />
+                  </type_NamedElement>
+                </property>
+              </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="105a1516-2a4d-4df2-aa05-7e6bb68410db" name="onCreate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="08977199-c302-4607-80f8-fd575dcd2ea7" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="c8d0653e-aea8-4f93-af1c-fc36890a9f51" name="Bundle savedInstanceState" direction="In" isUnique="false">
+                        <elementDefinition Id="f49bdbde-10af-4278-a797-1ffe6d41b7aa" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="4e5e34c3-062c-49e9-aac1-9e64e42dbd5e" name="onStart" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="1712485d-5dab-4995-8437-9cb44dcfa915" />
+                </operation>
+                <operation Id="0a14861c-0d21-493c-bcd5-b9b79bf891d0" name="onOptionsItemSelected" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="46a04be8-2ed2-4e7e-9229-2e117326f585" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="8de0b0a0-b304-4765-ba50-d6ca5164445e" name="MenuItem item" direction="In" isUnique="false">
+                        <elementDefinition Id="47bd1641-3f8a-4f7a-85b7-5727f24ed8c1" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="cc8d24f8-41a0-44b3-a0a1-7c8a3c490d5c" direction="Return">
+                        <elementDefinition Id="8df04f6e-e136-45f7-a865-c8b67f969122" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="f309943b-0078-4db3-9b14-971f4145102a" LastKnownName="boolean" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="f0e9620a-4f03-4039-a452-dd4da015b1e8" name="onCreateOptionsMenu" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="52bf875f-2651-455a-9177-35ead846f6c1" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="902e18dd-9265-4fbf-b558-1cfe020e25c3" name="Menu menu" direction="In" isUnique="false">
+                        <elementDefinition Id="f92e2b18-3af2-479e-8f9f-6efe4b5ad560" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="62ce9ccc-3459-4d92-9929-5e90296c788a" direction="Return">
+                        <elementDefinition Id="bc387b05-65ca-4ea4-a7a7-6c768f6a3170" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="924682c9-e5f4-4bdc-be91-d89c3158b5a3" LastKnownName="boolean" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="d2273ead-0d92-489d-8f66-15964a6f2cfb" name="connectClicked" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="5acff846-18e2-4d7f-a1f7-f3bf54d6e276" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="016044b1-75df-4a2b-ba29-18697f67c4cd" name="View v" direction="In" isUnique="false">
+                        <elementDefinition Id="45d2fafb-f165-4598-b415-1a720f2159ba" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="2041885a-bde3-40af-814a-afc53ec2c890" name="MainScreenActivity" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="36383156-2a2c-4af1-adcf-52dd3745ba53" />
+              <generalsInternal>
+                <generalization Id="f7f1ee5e-8fdd-4a61-8daf-bb7d0850f4d4" isSubstitutable="false">
+                  <classMoniker Id="873e2937-4000-4cc5-ad5d-422034a25abf" LastKnownName="android.app.Activity" />
+                  <elementDefinition Id="eb027e25-cec5-4636-b240-84eec8f28107" />
+                </generalization>
+              </generalsInternal>
+              <ownedOperationsInternal>
+                <operation Id="3fb9c0f3-eaee-44ff-a2fe-523588acfc9d" name="onCreate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="9797ce61-bbc8-4c0b-9e25-3d09e0869c31" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="b4b9c760-c1d9-4bae-b8df-80d2ed5fd945" name="Bundle savedInstanceState" direction="In" isUnique="false">
+                        <elementDefinition Id="42b004f9-2630-4ffe-bbc3-c75510b4cb8a" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="46a29cbb-11b4-4c3a-ada2-b6f25d0aee29" name="showAllParcels" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="bf534471-ec1b-4be3-a09a-0de691057a09" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="4e931b5c-6b3b-4370-bb86-a77c9597c819" name="View v" direction="In" isUnique="false">
+                        <elementDefinition Id="9badd42b-5fe8-4008-898e-0f29be39af33" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="f9dc37b6-4762-4216-9b81-71d918df8fa3" name="showMyParcels" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="0e85faa0-2edc-422b-8cbb-e1474f0889ef" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="d3732077-4b71-43e6-81f3-857b7c57006a" name="View v" direction="In" isUnique="false">
+                        <elementDefinition Id="8f34949a-371d-4617-a35b-2f9cea149a48" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="6e0983fe-de9e-455e-b62c-9871b56ed211" name="showUnassigned" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="5047ad99-279f-4453-8350-ade1aa00c637" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="878825df-fcd4-4901-9b00-22204e2eb6a8" name="ParcelsListActivity" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="258aa15d-c8bb-4448-95ae-a7e45b978dfe" />
+              <generalsInternal>
+                <generalization Id="5b7030da-2dd8-4899-9d13-94ee29642f7e" isSubstitutable="false">
+                  <classMoniker Id="873e2937-4000-4cc5-ad5d-422034a25abf" LastKnownName="android.app.Activity" />
+                  <elementDefinition Id="90cce92a-3c74-4398-a2ea-a13642b76cf9" />
+                </generalization>
+              </generalsInternal>
+              <ownedOperationsInternal>
+                <operation Id="bf324ad5-ce52-4822-ac24-4c8f3d0430d1" name="onCreate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="7472ce58-f14b-4092-bf63-75708993627d" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="5388a810-28e3-4182-968a-2dde35c72034" name="Bundle savedInstanceState" direction="In" isUnique="false">
+                        <elementDefinition Id="26e1934c-078f-4e88-81b3-4889e943eed7" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="a532e313-b708-4714-8079-d51fa2e8d48f" name="parcelSelected" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="ef9e0419-9791-43f6-aab1-f19d36e21737" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="67ca441f-c1c8-490f-824a-c5aa24659b67" name="View v" direction="In" isUnique="false">
+                        <elementDefinition Id="ace3fa06-f45e-4e4f-a980-224f480db8fc" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="d5b14019-12fd-46cb-97dc-23d947b91c00" name="fillList" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="ccbdc124-9076-46b5-9c58-82829a5849ff" />
+                </operation>
+                <operation Id="50462da7-4b64-43f5-a75f-d990740a0d39" name="deliverParcel" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="23599c4d-6a1f-4abe-9485-368e3a3ad395" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="9252b619-633d-47be-ab66-aeb7670164d5" name="View v" direction="In" isUnique="false">
+                        <elementDefinition Id="0c91b5b4-6a77-4f08-9b1d-67afcc1e93df" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="7b478955-ee02-4df0-8a11-cb363cc1cd78" name="ParcelDetailsActivity" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="c64debd6-2daf-4d5d-a1f8-a596e9e38bf7" />
+              <generalsInternal>
+                <generalization Id="2f1e0e8d-2ef0-4ce8-b726-9155a87837a8" isSubstitutable="false">
+                  <classMoniker Id="873e2937-4000-4cc5-ad5d-422034a25abf" LastKnownName="android.app.Activity" />
+                  <elementDefinition Id="d513a0b2-1233-4977-adf1-ebe673a4d3af" />
+                </generalization>
+              </generalsInternal>
+              <ownedOperationsInternal>
+                <operation Id="17e937b5-adbe-48dc-958f-d5443ada6ddb" name="onCreate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="062f9d11-b2ee-467f-a948-ecf96b87c195" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="27a4ecaa-ccaa-4ff2-a36a-ab1bea2a1dac" name="Bundle savedInstanceState" direction="In" isUnique="false">
+                        <elementDefinition Id="15ad5081-83e6-4e4f-8197-3ae1abad661e" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="88b3436c-ddf3-43a3-a3eb-f93e4a8784f6" name="deliverParcel" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="531ec09a-c9ee-4bc2-9afa-f203b307c8a6" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="430e7a21-2094-49bd-ae0c-35744c82bde0" name="View v" direction="In" isUnique="false">
+                        <elementDefinition Id="12524727-c751-4738-8831-5736111175f3" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
             </class>
           </packageHasNamedElement>
         </packagedElements>
       </package>
     </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="873e2937-4000-4cc5-ad5d-422034a25abf" name="android.app.Activity" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="37a7cf86-6ac3-49e4-a10f-73dde036a771" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="e943c7ec-c3da-47b1-93f3-86678c651d81" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="2fd6d1fc-545f-4770-ae3d-3c21db267384" name="EditText" isAbstract="false" isLeaf="false" cachedFullName="EditText">
+        <elementDefinition Id="e797c9aa-59fa-4a9d-9a1a-55db5af34f98" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8235b9e6-df79-4f14-9926-2e3f6c7f70aa" name="boolean" isAbstract="false" isLeaf="false" cachedFullName="boolean">
+        <elementDefinition Id="675bdd69-85e3-43f9-9abb-4b7e272a5988" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="30cf6777-effe-46db-9f7d-7e45361fc61b" name="Handler" isAbstract="false" isLeaf="false" cachedFullName="Handler">
+        <elementDefinition Id="94915d6b-c2a5-4d83-93c9-4ba0d5fff224" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="71ef5d41-1bc2-459f-b19d-c5a153695148" name="ProgressDialog" isAbstract="false" isLeaf="false" cachedFullName="ProgressDialog">
+        <elementDefinition Id="bf904911-4039-46b4-b2ca-ef6be21b7608" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="83a1e30f-274d-4f40-aed8-28fbdfa431e6" name="Resources" isAbstract="false" isLeaf="false" cachedFullName="Resources">
+        <elementDefinition Id="0c389f22-7347-4488-86d6-0590db601be1" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1f0e77cc-c8b0-4583-bf99-e6a4d32afc4a" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="a3c6d7df-98a7-48b2-a7d2-05abdfe18606" name="Handler" isAbstract="false" isLeaf="false" cachedFullName="Handler">
+        <elementDefinition Id="94915d6b-c2a5-4d83-93c9-4ba0d5fff224" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="924682c9-e5f4-4bdc-be91-d89c3158b5a3" name="boolean" isAbstract="false" isLeaf="false" cachedFullName="boolean">
+        <elementDefinition Id="675bdd69-85e3-43f9-9abb-4b7e272a5988" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="f309943b-0078-4db3-9b14-971f4145102a" name="boolean" isAbstract="false" isLeaf="false" cachedFullName="boolean">
+        <elementDefinition Id="675bdd69-85e3-43f9-9abb-4b7e272a5988" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="f62234ac-6c21-4901-9d8e-532438c9eef0" name="UML">
     <elementDefinition Id="5080fbf7-8e13-48c3-9c12-6137c6dab2aa" />
+    <profileInstances>
+      <packageHasProfileInstances Id="25ee6749-9687-4a3b-80d8-bb9311d67267">
+        <profileInstance Id="7eefd982-2c02-48f4-9491-3efb67d8b070" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="af91146b-c300-42db-b005-1d4a9e61bb6d">
+        <profileInstance Id="82b95efd-0cb0-41fb-9173-defeb9752cf1" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>
