@@ -136,7 +136,7 @@ public class LoginActivity extends Activity{
 						handler.post(new Runnable(){
 							public void run() {
 								loggingDial.hide();
-								//-----------------------------------------------------------tutaj wywo³aj g³owny ekran jak ju¿ go zrobisz
+								startActivity(new Intent(LoginActivity.this, MainScreenActivity.class));
 							}});
 					}
 					else

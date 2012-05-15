@@ -21,4 +21,7 @@
     <string name="communicationFail">The server you\'re trying to reach is not responding</string>
 	<string name="changeAddress">Change server address</string>
 	<string name="failedSaveLogin">Failed to save your login</string>
+	<string name="unsigned_parcels">Unassigned parcels</string>
+    <string name="signed_parcels">My parcels</string>
+    <string name="signed_undelievered">My undelievered parcels</string>
 </resources>

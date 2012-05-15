@@ -21,4 +21,7 @@
     <string name="communicationFail">Serwer, z którym próbujesz się połączyć, nie odpowiada</string>
     <string name="changeAddress">Zmień adres serwera</string>
     <string name="failedSaveLogin">Wystąpił błąd podczas zapisu loginu</string>
+    <string name="unsigned_parcels">Paczki nieprzypisane</string>
+    <string name="signed_parcels">Moje paczki</string>
+    <string name="signed_undelievered">Moje niedostarczone paczki</string>
 </resources>
