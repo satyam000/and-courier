@@ -119,19 +119,15 @@ public class MySQLConnector implements Backend{
 		try
 		{
 			statement = connection.createStatement();
-			rs = statement.executeQuery("SELECT * FROM parcels WHERE assigned_to IS NULL");
+			rs = statement.executeQuery("SELECT package_id, weight, sent_on, city, type FROM parcels, customers, parceltype WHERE assigned_to IS NULL AND customers.customer_id = parcels.package_id AND parceltype.parceltype_id = parcels.parceltype_id order by sent_on desc");
 			while (rs.next())
 			{
-				String [] str = new String[9];
+				String [] str = new String[5];
 				str[0] = rs.getString(1);
 				str[1] = rs.getString(2);
 				str[2] = rs.getString(3);
 				str[3] = rs.getString(4);
 				str[4] = rs.getString(5);
-				str[5] = rs.getString(6);
-				str[6] = rs.getString(7);
-				str[7] = rs.getString(8);
-				str[8] = rs.getString(9);
 				ret.add(str);
 			}
 		}
@@ -152,19 +148,44 @@ public class MySQLConnector implements Backend{
 		try
 		{
 			statement = connection.createStatement();
-			rs = statement.executeQuery("SELECT * FROM parcels WHERE assigned_to = " + id +" and delivered_on is null");
+			rs = statement.executeQuery("SELECT package_id, weight, sent_on, city, type FROM parcels, customers, parceltype WHERE assigned_to = " + id +" AND customers.customer_id = parcels.package_id AND parceltype.parceltype_id = parcels.parceltype_id order by sent_on desc");
 			while (rs.next())
 			{
-				String [] str = new String[9];
+				String [] str = new String[5];
 				str[0] = rs.getString(1);
 				str[1] = rs.getString(2);
 				str[2] = rs.getString(3);
 				str[3] = rs.getString(4);
 				str[4] = rs.getString(5);
-				str[5] = rs.getString(6);
-				str[6] = rs.getString(7);
-				str[7] = rs.getString(8);
-				str[8] = rs.getString(9);
+				ret.add(str);
+			}
+		}
+		catch(Exception e)
+		{
+			Log.getGlobal().error("Failed to retrieve assigned to me parcels information");
+			return null;
+		}
+		return ret;
+	}
+	
+	@Override
+	public LinkedList<String[]> getAssignedUndeliveredParcels(int id)
+	{
+		Statement statement = null;
+		ResultSet rs = null;
+		LinkedList<String[]>ret = new LinkedList<String[]>();
+		try
+		{
+			statement = connection.createStatement();
+			rs = statement.executeQuery("SELECT package_id, weight, sent_on, city, type FROM parcels, customers, parceltype WHERE assigned_to = " + id +" and delivered_on is null AND customers.customer_id = parcels.package_id AND parceltype.parceltype_id = parcels.parceltype_id order by sent_on desc");
+			while (rs.next())
+			{
+				String [] str = new String[5];
+				str[0] = rs.getString(1);
+				str[1] = rs.getString(2);
+				str[2] = rs.getString(3);
+				str[3] = rs.getString(4);
+				str[4] = rs.getString(5);
 				ret.add(str);
 			}
 		}
@@ -191,9 +212,9 @@ public class MySQLConnector implements Backend{
 		Log.getGlobal().event("Parcel " + parcel_id + " delivered");
 	}
 	
-	public static void deployDatabase(String serverAddress, String databaseName, String userName, String password)
+	public static void deployDatabase(String serverAddress, String databaseName, String userName, String password) throws Exception
 	{
-		try {
+		//try {
 		    // Load the JDBC driver
 		    String driverName = "org.gjt.mm.mysql.Driver"; // MySQL MM JDBC driver
 		    Class.forName(driverName);
@@ -250,12 +271,12 @@ public class MySQLConnector implements Backend{
 		    st.execute("ALTER TABLE parcels ADD CONSTRAINT FOREIGN KEY (parceltype_id) REFERENCES parceltype(parceltype_id);");
 		    System.out.println("Database deployed");
 		    Log.getGlobal().event("Database deployed");
-		} catch (ClassNotFoundException e) {
+		/*} catch (ClassNotFoundException e) {
 		    System.err.println("Failed to deploy database to sever: "+e);
 		    Log.getGlobal().error("Failed to deploy database to sever: "+e);
 		} catch (SQLException e) {
 			Log.getGlobal().error("Failed to deploy database to sever: "+e);
 		    System.err.println("Failed to deploy database to sever: "+e);
-		}
+		}*/
 	}
 }

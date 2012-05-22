@@ -18,5 +18,7 @@ public interface Backend {
 	
 	public LinkedList<String[]> getAssignedToMeParcels(int id);
 	
+	public LinkedList<String[]> getAssignedUndeliveredParcels(int id);
+	
 	public void deliverParcel(int parecel_id);
 }

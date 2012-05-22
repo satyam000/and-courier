@@ -3,13 +3,12 @@ package server.communication.message;
 import java.util.LinkedList;
 
 import server.communication.ClientCommunicator;
-import server.filesystem.Log;
 
-public class UnassignedParcelsProcessor extends MessageProcessor{
+public class AssignedUndeliveredParcelsProcessor extends MessageProcessor {
 
 	private ClientCommunicator parent;
 	
-	public UnassignedParcelsProcessor(ClientCommunicator parent)
+	public AssignedUndeliveredParcelsProcessor(ClientCommunicator parent)
 	{
 		this.parent = parent;
 	}
@@ -17,8 +16,8 @@ public class UnassignedParcelsProcessor extends MessageProcessor{
 	@Override
 	public void process(String in) {
 		
-		String answer = "unpar:";
-		LinkedList<String[]> res = parent.getParent().getBackend().getUnassignedParcels();
+		String answer = "asund:";
+		LinkedList<String[]> res = parent.getParent().getBackend().getAssignedToMeParcels(parent.getClientId());
 		boolean first = true;
 		for (String [] args : res)
 		{
@@ -31,5 +30,4 @@ public class UnassignedParcelsProcessor extends MessageProcessor{
 		parent.getOutputStream().println(answer);
 	}
 
-	
 }

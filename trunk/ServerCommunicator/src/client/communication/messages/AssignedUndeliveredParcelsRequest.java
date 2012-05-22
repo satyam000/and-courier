@@ -5,26 +5,17 @@ import java.util.LinkedList;
 
 import client.event.ThreadListResponseEvent;
 
-public class UnassignedParcelsRequest extends ClientRequest{
+public class AssignedUndeliveredParcelsRequest extends ClientRequest {
 
-	private int page;
-	
-	public UnassignedParcelsRequest(Socket s, ThreadListResponseEvent eproc, int page)
+	public AssignedUndeliveredParcelsRequest(Socket s, ThreadListResponseEvent eproc)
 	{
 		super(s, eproc);
-		this.page = page;
-	}
-	
-	public UnassignedParcelsRequest(Socket s, ThreadListResponseEvent eproc)
-	{
-		super(s, eproc);
-		this.page = 0;
 	}
 	
 	@Override
 	protected boolean communicate() {
 		
-		out.println("unpar:"+page);
+		out.println("asund:");
 		String input = null;
 		int pos;
 		try
@@ -32,7 +23,7 @@ public class UnassignedParcelsRequest extends ClientRequest{
 			while (true)
 			{
 				input = in.readLine();
-				if (input.startsWith("unpar:"))
+				if (input.startsWith("asund:"))
 					break;
 			}
 		}
@@ -48,5 +39,4 @@ public class UnassignedParcelsRequest extends ClientRequest{
 		((ThreadListResponseEvent)event).setList(ret);
 		return true;
 	}
-
 }

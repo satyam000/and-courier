@@ -14,6 +14,8 @@ public abstract class MessageProcessorFactory {
 			return new AssignedToMeParcelsProcessor(parent);
 		if (input.startsWith("del:"))
 			return new DeliverParcelProcessor(parent);
+		if (input.startsWith("asund:"))
+			return new AssignedUndeliveredParcelsProcessor(parent);
 		return null;
 	}
 }
