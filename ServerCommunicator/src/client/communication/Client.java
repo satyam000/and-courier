@@ -5,6 +5,7 @@ import java.net.Socket;
 import java.net.SocketAddress;
 
 import client.communication.messages.AssignedToMeParcelsRequest;
+import client.communication.messages.AssignedUndeliveredParcelsRequest;
 import client.communication.messages.ClientRequest;
 import client.communication.messages.DeliverParcelRequest;
 import client.communication.messages.LoginRequest;
@@ -100,11 +101,11 @@ public class Client {
 			ongoingMessage.start();
 	}
 	
-	public void requestUnassignedParcels(ThreadListResponseEvent eproc)
+	public void requestUnassignedParcels(ThreadListResponseEvent eproc, int page)
 	{
 			if (ongoingMessage != null && ongoingMessage.isAlive())
 				ongoingMessage.stop();
-			ongoingMessage = new UnassignedParcelsRequest(socket, eproc);
+			ongoingMessage = new UnassignedParcelsRequest(socket, eproc,page);
 			ongoingMessage.start();
 	}
 	
@@ -113,6 +114,14 @@ public class Client {
 			if (ongoingMessage != null && ongoingMessage.isAlive())
 				ongoingMessage.stop();
 			ongoingMessage = new AssignedToMeParcelsRequest(socket, eproc);
+			ongoingMessage.start();
+	}
+	
+	public void requestAssignedUndeliveredParcels(ThreadListResponseEvent eproc)
+	{
+			if (ongoingMessage != null && ongoingMessage.isAlive())
+				ongoingMessage.stop();
+			ongoingMessage = new AssignedUndeliveredParcelsRequest(socket, eproc);
 			ongoingMessage.start();
 	}
 	

@@ -6,21 +6,18 @@ import client.event.ThreadLoginEvent;
 
 public class Test {
 
+	public static Client c;
 	public static void main(String [] args) throws Exception
 	{
-		if (Client.testAddress("hermenegild"))
-		{
-			System.out.println("ok");
-		}
-		else
-			System.out.println("fail");
-		/*Client.setHostAddress("192.168.1.5");
-		Client c = Client.getInstance();
+		Client.setHostAddress("192.168.1.4");
+		c = Client.getInstance();
 		c.logIn("misio", "password", new ThreadLoginEvent(){
 
 			public void process() {
 				if (success)
-					System.out.println("logged in");
+				{
+					System.out.println("logged");
+				}
 				else
 				{
 					System.out.println ("not logged!!!");
@@ -33,20 +30,33 @@ public class Test {
 				System.out.println("Error login");
 				
 			}});
-		//Thread.sleep(1000);
-		/*c.requestAssignedToMeParcels(new ThreadListResponseEvent(){
+		
+		Thread.sleep(1000);
+		/*c.requestUnassignedParcels(new ThreadListResponseEvent(){
 
-			@Override
 			public void process() {
+				System.out.println("processing");
 				for (String [] ss : list)
 					System.out.println(ss[0]);
 				
 			}
 
-			@Override
 			public void errorOccured() {
 				System.out.print("Error");
 				
-			}});*/
+			}},5);*/
+		c.requestAssignedUndeliveredParcels(new ThreadListResponseEvent(){
+
+			public void process() {
+				System.out.println("processing");
+				for (String [] ss : list)
+					System.out.println(ss[0]);
+				
+			}
+
+			public void errorOccured() {
+				System.out.print("Error");
+				
+			}});
 	}
 }

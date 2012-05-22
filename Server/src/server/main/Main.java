@@ -156,8 +156,8 @@ public class Main {
 	
 	private static void commandLine()
 	{
-		//dbcon = new MySQLConnector("localhost", "schoolproject", "server", "password");
-		initMySQLData();
+		dbcon = new MySQLConnector("localhost", "school", "root", "password");
+		//initMySQLData();
 		System.out.println("\nFor instructions type help\nFor instructions about specific command type help <command>\n");
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		String com = null;
@@ -197,11 +197,18 @@ public class Main {
 			String uName = in.readLine();
 			System.out.println("Enter user password for the database");
 			String pass = in.readLine();
+			if (yn.equals("n"))
+				MySQLConnector.deployDatabase(address, dbName, uName, pass);
 			dbcon = new MySQLConnector(address, dbName, uName, pass);
+			
 		}
 		catch(IOException e)
 		{
 			System.err.println("Failed to read from standard input");
+		}
+		catch(Exception e)
+		{
+			System.err.println("Failed to deploy database");
 		}
 	}
 	
