@@ -197,6 +197,38 @@ public class MySQLConnector implements Backend{
 		return ret;
 	}
 	
+	public String[] getDetailedParcel(int parcel_id)
+	{
+		Statement statement = null;
+		ResultSet rs = null;
+		String [] ret = new String [11];
+		try
+		{
+			statement = connection.createStatement();
+			rs = statement.executeQuery("SELECT name, surname, city, street, postal_code, building_num, apartment_num, type,sent_on,price,weight FROM parcels, customers, parceltype WHERE parcels.package_id = " + parcel_id +" and delivered_on is null AND customers.customer_id = parcels.package_id AND parceltype.parceltype_id = parcels.parceltype_id order by sent_on desc");
+			while (rs.next())
+			{
+				ret[0] = rs.getString(1);
+				ret[1] = rs.getString(2);
+				ret[2] = rs.getString(3);
+				ret[3] = rs.getString(4);
+				ret[4] = rs.getString(5);
+				ret[5] = rs.getString(6);
+				ret[6] = rs.getString(7);
+				ret[7] = rs.getString(8);
+				ret[8] = rs.getString(9);
+				ret[9] = rs.getString(10);
+				ret[10] = rs.getString(11);
+			}
+		}
+		catch(Exception e)
+		{
+			Log.getGlobal().error("Failed to retrieve detailed parcels information");
+			return null;
+		}
+		return ret;
+	}
+	
 	public void deliverParcel(int parcel_id)
 	{
 		try
