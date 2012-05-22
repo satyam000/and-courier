@@ -21,4 +21,6 @@ public interface Backend {
 	public LinkedList<String[]> getAssignedUndeliveredParcels(int id);
 	
 	public void deliverParcel(int parecel_id);
+	
+	public String[] getDetailedParcel(int parcel_id);
 }

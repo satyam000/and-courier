@@ -8,8 +8,10 @@ import client.communication.messages.AssignedToMeParcelsRequest;
 import client.communication.messages.AssignedUndeliveredParcelsRequest;
 import client.communication.messages.ClientRequest;
 import client.communication.messages.DeliverParcelRequest;
+import client.communication.messages.DetailedParcelRequest;
 import client.communication.messages.LoginRequest;
 import client.communication.messages.UnassignedParcelsRequest;
+import client.event.ThreadDetailedParcelEvent;
 import client.event.ThreadEventProcessor;
 import client.event.ThreadListResponseEvent;
 import client.event.ThreadLoginEvent;
@@ -130,6 +132,14 @@ public class Client {
 		if (ongoingMessage != null && ongoingMessage.isAlive())
 			ongoingMessage.stop();
 		ongoingMessage = new DeliverParcelRequest(socket, eproc, parcel_id);
+		ongoingMessage.start();
+	}
+	
+	public void requestParcelDetails(int parcel_id, ThreadDetailedParcelEvent eproc)
+	{
+		if (ongoingMessage != null && ongoingMessage.isAlive())
+			ongoingMessage.stop();
+		ongoingMessage = new DetailedParcelRequest(socket, eproc, parcel_id);
 		ongoingMessage.start();
 	}
 }
