@@ -2,6 +2,7 @@ package client.test;
 
 import client.communication.Client;
 import client.event.ThreadDetailedParcelEvent;
+import client.event.ThreadEventProcessor;
 import client.event.ThreadListResponseEvent;
 import client.event.ThreadLoginEvent;
 
@@ -10,7 +11,7 @@ public class Test {
 	public static Client c;
 	public static void main(String [] args) throws Exception
 	{
-		Client.setHostAddress("192.168.1.4");
+		Client.setHostAddress("192.168.1.2");
 		c = Client.getInstance();
 		c.logIn("misio", "password", new ThreadLoginEvent(){
 
@@ -43,7 +44,7 @@ public class Test {
 			}
 
 			public void errorOccured() {
-				System.out.print("Error");
+				System.out.print("Error 1");
 				
 			}},5);
 		Thread.sleep(1000);
@@ -57,7 +58,7 @@ public class Test {
 			}
 
 			public void errorOccured() {
-				System.out.print("Error");
+				System.out.print("Error 2");
 				
 			}});
 		Thread.sleep(1000);
@@ -80,10 +81,23 @@ public class Test {
 			}
 
 			public void errorOccured() {
-				System.out.print("Error");
+				System.out.print("Error 3");
 				
 			}
 		
 		});
+		
+		Thread.sleep(1000);
+		c.AssignParcel(1, new ThreadEventProcessor(){
+
+			public void process() {
+				System.out.print("Parcel assigned");
+				
+			}
+
+			public void errorOccured() {
+				System.out.print("Error 4");
+				
+			}});
 	}
 }

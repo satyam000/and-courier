@@ -23,4 +23,6 @@ public interface Backend {
 	public void deliverParcel(int parecel_id);
 	
 	public String[] getDetailedParcel(int parcel_id);
+	
+	public void assignParcel(int parcel_id, int courier_id);
 }

@@ -4,6 +4,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
 
+import client.communication.messages.AssignToMeRequest;
 import client.communication.messages.AssignedToMeParcelsRequest;
 import client.communication.messages.AssignedUndeliveredParcelsRequest;
 import client.communication.messages.ClientRequest;
@@ -132,6 +133,14 @@ public class Client {
 		if (ongoingMessage != null && ongoingMessage.isAlive())
 			ongoingMessage.stop();
 		ongoingMessage = new DeliverParcelRequest(socket, eproc, parcel_id);
+		ongoingMessage.start();
+	}
+	
+	public void AssignParcel(int parcel_id, ThreadEventProcessor eproc)
+	{
+		if (ongoingMessage != null && ongoingMessage.isAlive())
+			ongoingMessage.stop();
+		ongoingMessage = new AssignToMeRequest(socket, eproc, parcel_id);
 		ongoingMessage.start();
 	}
 	
