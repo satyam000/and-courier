@@ -244,6 +244,21 @@ public class MySQLConnector implements Backend{
 		Log.getGlobal().event("Parcel " + parcel_id + " delivered");
 	}
 	
+	public void assignParcel(int parcel_id, int courier_id)
+	{
+		try
+		{
+			Statement stat = connection.createStatement();
+			stat.executeUpdate("update parcels set assigned_to = " + courier_id + " where package_id = " + parcel_id + ";");
+		}
+		catch(Exception e)
+		{
+			Log.getGlobal().error("Failed to assign parcel to courier " + parcel_id);
+			return;
+		}
+		Log.getGlobal().event("Parcel " + parcel_id + " assigned to courier " + courier_id);
+	}
+	
 	public static void deployDatabase(String serverAddress, String databaseName, String userName, String password) throws Exception
 	{
 		//try {

@@ -18,6 +18,8 @@ public abstract class MessageProcessorFactory {
 			return new AssignedUndeliveredParcelsProcessor(parent);
 		if (input.startsWith("detpar:"))
 			return new DetailedParcelProcessor(parent);
+		if (input.startsWith("ass:"))
+			return new AssignToMeProcessor(parent);
 		return null;
 	}
 }
