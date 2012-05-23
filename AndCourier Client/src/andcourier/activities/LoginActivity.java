@@ -104,48 +104,72 @@ public class LoginActivity extends Activity{
 		else
 		{
 			loggingDial.show();
-			Client c = Client.getInstance();
-			c.logIn(login.getText().toString(), password.getText().toString(), new ThreadLoginEvent(){
-	
-				public void errorOccured() {
-					handler.post(new Runnable(){
-	
-						public void run() {
-							loggingDial.hide();
-							Toast.makeText(myInstance, res.getString(R.string.communicationFail), Toast.LENGTH_SHORT).show();
-						}});
-				}
-	
-				public void process() {
-					
-					if (this.success)
+			
+			new Thread(new Runnable(){
+				
+				public void run()
+				{
+					Client c = Client.getInstance();
+					if (c == null)
 					{
-						try
-						{
-							FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-							fos.write(login.getText().toString().getBytes());
-							fos.close();
-						}
-						catch(Exception e)
-						{
-							handler.post(new Runnable(){
-								public void run() {
-									Toast.makeText(LoginActivity.this, LoginActivity.this.getString(R.string.failedSaveLogin), Toast.LENGTH_SHORT).show();
-								}});
-						}
 						handler.post(new Runnable(){
-							public void run() {
+							
+							public void run()
+							{
 								loggingDial.hide();
-								startActivity(new Intent(LoginActivity.this, MainScreenActivity.class));
-							}});
+								Toast.makeText(LoginActivity.this, getString(R.string.unreachableHost), Toast.LENGTH_SHORT).show();
+							}
+						});
+						return;
 					}
 					else
-						handler.post(new Runnable(){
-							public void run() {
-								loggingDial.hide();
-								Toast.makeText(myInstance, res.getString(R.string.incorrectCredentials), Toast.LENGTH_SHORT).show();
+					{
+						c.logIn(login.getText().toString(), password.getText().toString(), new ThreadLoginEvent(){
+							
+							public void errorOccured() {
+								handler.post(new Runnable(){
+				
+									public void run() {
+										loggingDial.hide();
+										Toast.makeText(myInstance, res.getString(R.string.communicationFail), Toast.LENGTH_SHORT).show();
+									}});
+							}
+				
+							public void process() {
+								
+								if (this.success)
+								{
+									try
+									{
+										FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+										fos.write(login.getText().toString().getBytes());
+										fos.close();
+									}
+									catch(Exception e)
+									{
+										handler.post(new Runnable(){
+											public void run() {
+												Toast.makeText(LoginActivity.this, LoginActivity.this.getString(R.string.failedSaveLogin), Toast.LENGTH_SHORT).show();
+											}});
+									}
+									handler.post(new Runnable(){
+										public void run() {
+											loggingDial.hide();
+											startActivity(new Intent(LoginActivity.this, MainScreenActivity.class));
+										}});
+								}
+								else
+									handler.post(new Runnable(){
+										public void run() {
+											loggingDial.hide();
+											Toast.makeText(myInstance, res.getString(R.string.incorrectCredentials), Toast.LENGTH_SHORT).show();
+										}});
 							}});
-				}});
+					}
+				}
+				
+			}).start();
+			
 		}
 	}
 }

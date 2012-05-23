@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+	android:layout_height="match_parent">
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0">
+        
+        <TableRow>
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/type" />
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/type" />
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/weight" />
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/weight" />
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/price" />
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/price" />
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/sentOn" />
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/sentOn" />
+        </TableRow>
+        
+        <TableRow android:layout_marginTop="15dip">
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/addressedTo" />
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/name" />
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/name" />
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/surname" />
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/surname" />
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/postalCode" />
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/postalCode" />
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/city" />
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/city" />
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/street" />
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/street" />
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/building" />
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/building" />
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/apartment" />
+            <TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/apartment" />
+        </TableRow>
+    </TableLayout>
+    <Button 
+        android:layout_marginTop="20dip"
+        android:onClick="buttonClicked"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"/>
+</LinearLayout>
+</ScrollView>
