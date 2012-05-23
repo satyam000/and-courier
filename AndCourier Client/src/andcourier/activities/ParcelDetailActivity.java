@@ -15,7 +15,7 @@ import client.event.ThreadEventProcessor;
 public class ParcelDetailActivity extends Activity {
 
 	private TextView name, surname, city, street, postalCode, building, apartment, type, weight, sentOn, price;
-	private ProgressDialog loading, assigning;
+	private ProgressDialog loading, assigning,delivering;
 	private Handler hand;
 	private int dbid = -1;
 	private int mode;
@@ -43,6 +43,8 @@ public class ParcelDetailActivity extends Activity {
 		loading.setMessage(getString(R.string.loadingData));
 		assigning = new ProgressDialog(this);
 		assigning.setMessage(getString(R.string.assigning));
+		delivering = new ProgressDialog(this);
+		delivering.setMessage(getString(R.string.delivering));
 		
 		hand = new Handler();
 		
@@ -53,6 +55,12 @@ public class ParcelDetailActivity extends Activity {
 		{
 		case 1:
 			button.setText(getString(R.string.assignToMe));
+			break;
+		case 2:
+			button.setVisibility(View.GONE);
+			break;
+		case 3:
+			button.setText(getString(R.string.deliver));
 			break;
 		}
 	}
@@ -87,6 +95,36 @@ public class ParcelDetailActivity extends Activity {
 			}});
 	}
 	
+	public void deliverParcel()
+	{
+		delivering.show();
+		Client.getInstance().deliverParcel(dbid, new ThreadEventProcessor(){
+
+			public void process() {
+				hand.post(new Runnable(){
+					
+					public void run()
+					{
+						delivering.hide();
+						Toast.makeText(ParcelDetailActivity.this, getString(R.string.parcelDelivered), Toast.LENGTH_SHORT).show();
+						button.setVisibility(View.GONE);
+					}
+					
+				});
+			}
+
+			public void errorOccured() {
+				hand.post(new Runnable(){
+					public void run()
+					{
+						delivering.hide();
+						Toast.makeText(ParcelDetailActivity.this, getString(R.string.failedToDeliver), Toast.LENGTH_SHORT).show();
+					}
+				});
+				
+			}});
+	}
+	
 	public void buttonClicked(View v)
 	{
 		switch(this.mode)
@@ -94,6 +132,8 @@ public class ParcelDetailActivity extends Activity {
 		case 1:
 			assignParcel();
 			break;
+		case 3:
+			deliverParcel();
 		}
 	}
 	
@@ -126,11 +166,20 @@ public class ParcelDetailActivity extends Activity {
 					public void run()
 					{
 						loading.hide();
-						Toast.makeText(ParcelDetailActivity.this, "Error occured while retrievin the data", Toast.LENGTH_SHORT).show();
+						Toast.makeText(ParcelDetailActivity.this, getString(R.string.errorDataRetrival), Toast.LENGTH_SHORT).show();
 					}
 					
 				});
 				
 			}});
+	}
+	
+	@Override
+	public void onPause()
+	{
+		loading.dismiss();
+		assigning.dismiss();
+		delivering.dismiss();
+		super.onPause();
 	}
 }

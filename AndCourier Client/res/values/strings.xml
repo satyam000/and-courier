@@ -43,4 +43,9 @@
     <string name="parcelAssigned">Parcel assigned</string>
     <string name="failedToAssign">Failed to assign parcel</string>
     <string name="unreachableHost">The host you\'re trying to reach is unavailable</string>
+    <string name="deliver">Deliver</string>
+    <string name="delivering">Delivering...</string>
+    <string name="errorDataRetrival">Error occured while retrievin the data</string>
+    <string name="parcelDelivered">Delivered</string>
+    <string name="failedToDeliver">Failed to change status of a parcel to delivered</string>
 </resources>

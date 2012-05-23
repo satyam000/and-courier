@@ -17,7 +17,7 @@ public class AssignedUndeliveredParcelsProcessor extends MessageProcessor {
 	public void process(String in) {
 		
 		String answer = "asund:";
-		LinkedList<String[]> res = parent.getParent().getBackend().getAssignedToMeParcels(parent.getClientId());
+		LinkedList<String[]> res = parent.getParent().getBackend().getAssignedUndeliveredParcels(parent.getClientId());
 		boolean first = true;
 		for (String [] args : res)
 		{
