@@ -48,4 +48,5 @@
     <string name="errorDataRetrival">Error occured while retrievin the data</string>
     <string name="parcelDelivered">Delivered</string>
     <string name="failedToDeliver">Failed to change status of a parcel to delivered</string>
+    <string name="logOut">Log out</string>
 </resources>

@@ -96,6 +96,16 @@ public class Client {
 		return instance;
 	}
 	
+	public synchronized static void disconnect()
+	{
+		try
+		{
+			instance.socket.close();
+		}
+		catch(Exception e){}
+		instance = null;
+	}
+	
 	public void logIn(String login, String password, ThreadLoginEvent eproc)
 	{
 			if (ongoingMessage != null && ongoingMessage.isAlive())

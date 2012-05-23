@@ -64,6 +64,7 @@ public class LoginActivity extends Activity{
 	{
 		super.onStart();
 		((TextView)this.findViewById(R.id.hostAddressText)).setText(Client.getHostAddress());
+		password.setText("");
 	}
 	
 	@Override

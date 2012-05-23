@@ -1,8 +1,12 @@
 package andcourier.activities;
 
+import client.communication.Client;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 public class MainScreenActivity extends Activity {
@@ -31,5 +35,26 @@ public class MainScreenActivity extends Activity {
 		Intent in = new Intent(this, ParcelsActivity.class);
 		in.putExtra("mode", 1);
 		startActivity(in);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch(item.getItemId())
+		{
+		case R.id.menu_logOut:
+			Client.disconnect();
+			this.finish();
+			return true;
+		default:
+            return super.onOptionsItemSelected(item);
+		}
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.mainscreen, menu);
+		return true;
 	}
 }
