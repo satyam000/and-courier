@@ -34,10 +34,11 @@ public class Test {
 			}});
 		
 		Thread.sleep(1000);
+		System.out.println();
 		c.requestUnassignedParcels(new ThreadListResponseEvent(){
 
 			public void process() {
-				System.out.println("processing");
+				System.out.println("processing - unassigned parcels");
 				for (String [] ss : list)
 					System.out.println(ss[0]);
 				
@@ -48,10 +49,27 @@ public class Test {
 				
 			}},5);
 		Thread.sleep(1000);
+		System.out.println();
 		c.requestAssignedUndeliveredParcels(new ThreadListResponseEvent(){
 
 			public void process() {
-				System.out.println("processing");
+				System.out.println("processing - assigned undelivered parcels");
+				for (String [] ss : list)
+					System.out.println(ss[0]);
+				
+			}
+
+			public void errorOccured() {
+				System.out.print("Error 2");
+				
+			}});
+		
+		Thread.sleep(1000);
+		System.out.println();
+		c.requestAssignedToMeParcels(new ThreadListResponseEvent(){
+
+			public void process() {
+				System.out.println("processing - assigned parcels");
 				for (String [] ss : list)
 					System.out.println(ss[0]);
 				
@@ -62,6 +80,7 @@ public class Test {
 				
 			}});
 		Thread.sleep(1000);
+		System.out.println();
 		c.requestParcelDetails(1, new ThreadDetailedParcelEvent()
 		{
 
@@ -88,6 +107,7 @@ public class Test {
 		});
 		
 		Thread.sleep(1000);
+		System.out.println();
 		c.AssignParcel(1, new ThreadEventProcessor(){
 
 			public void process() {

@@ -83,6 +83,8 @@ public class ParcelsActivity extends Activity{
 				TextView text;
 				for (String [] ss : itemlist)
 				{
+					if (ss.length<4)
+						break;
 					row = new TableRow(ParcelsActivity.this);
 					
 					text = new TextView(ParcelsActivity.this);
@@ -167,8 +169,8 @@ public class ParcelsActivity extends Activity{
 	@Override
 	public void onPause()
 	{
-		super.onPause();
 		loading.dismiss();
+		super.onPause();
 	}
 	
 	private class ItemClick implements View.OnClickListener
