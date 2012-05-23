@@ -24,4 +24,23 @@
 	<string name="unsigned_parcels">Unassigned parcels</string>
     <string name="signed_parcels">My parcels</string>
     <string name="signed_undelievered">My undelievered parcels</string>
+    <string name="loadingData">Loading data...</string>
+    <string name="loadingDataFailed">Failed to load the data</string>
+    <string name="type">Type</string>
+    <string name="city">City</string>
+    <string name="weight">Weight</string>
+    <string name="addressedTo">Addressed to:</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="postalCode">Postal code</string>
+    <string name="street">Street</string>
+    <string name="building">Building</string>
+    <string name="apartment">Apartment</string>
+    <string name="sentOn">Sent on</string>
+    <string name="price">Price</string>
+    <string name="assignToMe">Assign to me</string>
+    <string name="assigning">Assigning...</string>
+    <string name="parcelAssigned">Parcel assigned</string>
+    <string name="failedToAssign">Failed to assign parcel</string>
+    <string name="unreachableHost">The host you\'re trying to reach is unavailable</string>
 </resources>

@@ -25,6 +25,12 @@
         <activity
             android:name=".MainScreenActivity">
         </activity>
+        <activity
+            android:name=".ParcelsActivity" >
+        </activity>
+        <activity
+            android:name=".ParcelDetailActivity">
+        </activity>
     </application>
 
 </manifest>
